@@ -1,0 +1,69 @@
+<div class="management-container">
+  <h2>ניהול ציורים</h2>
+  <mat-card class="drawing-card">
+    <div class="button-container">
+      <button mat-raised-button color="primary" (click)="openAddDrawing()">הוסף ציור חדש</button>
+    </div>
+
+    <table mat-table [dataSource]="drawings" class="mat-elevation-z8">
+
+      <!-- עמודת name -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> שם </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+     <!-- categoryId -->
+      <ng-container matColumnDef="categoryId">
+        <th mat-header-cell *matHeaderCellDef> קטגוריה </th>
+        <td mat-cell *matCellDef="let element"> {{element.categoryId}} </td>
+      </ng-container>
+     <!-- artist_name -->
+      <ng-container matColumnDef="artist_name">
+        <th mat-header-cell *matHeaderCellDef> יוצר </th>
+        <td mat-cell *matCellDef="let element"> {{element.artist_name}} </td>
+      </ng-container>
+      
+      <!-- target_age -->
+      <ng-container matColumnDef="target_age">
+        <th mat-header-cell *matHeaderCellDef> גיל יעד </th>
+        <td mat-cell *matCellDef="let element"> {{element.target_age}} </td>
+      </ng-container>
+
+      <!-- path -->
+      <ng-container matColumnDef="path">
+        <th mat-header-cell *matHeaderCellDef> קישור לתמונה </th>
+        <td mat-cell *matCellDef="let element">
+          <a [href]="element.path" target="_blank">{{element.path}}</a>
+        </td>
+      </ng-container>
+      
+      <!-- created_at -->
+      <ng-container matColumnDef="created_at">
+        <th mat-header-cell *matHeaderCellDef> נוצר בתאריך </th>
+        <td mat-cell *matCellDef="let element"> {{element.created_at}} </td>
+      </ng-container>
+
+      <!-- updated_at -->
+      <ng-container matColumnDef="updated_at">
+        <th mat-header-cell *matHeaderCellDef> עודכן בתאריך </th>
+        <td mat-cell *matCellDef="let element"> {{element.updated_at}} </td>
+      </ng-container>
+
+      <!-- פעולות -->
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef> פעולות </th>
+        <td mat-cell *matCellDef="let element">
+          <a [href]="element.path" target="_blank">הורדה</a>
+          &nbsp;|&nbsp;
+          <a (click)="editDrawing(element)">ערוך</a>
+        </td>
+      </ng-container>
+
+      <!-- שורת כותרות -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    </table>
+  </mat-card>
+</div>

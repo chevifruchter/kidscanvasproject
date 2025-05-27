@@ -1,0 +1,261 @@
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.csproj.AssemblyReference.cache
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.AssemblyInfoInputs.cache
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.AssemblyInfo.cs
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.csproj.CoreCompileInputs.cache
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\appsettings.json
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Api-Kids-Canvas.exe
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Api-Kids-Canvas.deps.json
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Api-Kids-Canvas.runtimeconfig.json
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Api-Kids-Canvas.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Api-Kids-Canvas.pdb
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\AWSSDK.Core.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\AWSSDK.Extensions.NETCore.Setup.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\AWSSDK.S3.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\FluentAssertions.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Humanizer.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Collections.Immutable.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Core.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Data.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Service.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Data.pdb
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Service.pdb
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Core.pdb
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\scopedcss\bundle\Api-Kids-Canvas.styles.css
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.csproj.CopyComplete
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\refint\Api-Kids-Canvas.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.pdb
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.genruntimeconfig.cache
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\ref\Api-Kids-Canvas.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\appsettings.Development.json
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\appsettings.json
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Api-Kids-Canvas.exe
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Api-Kids-Canvas.deps.json
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Api-Kids-Canvas.runtimeconfig.json
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Api-Kids-Canvas.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Api-Kids-Canvas.pdb
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\AutoMapper.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\AWSSDK.Core.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\AWSSDK.Extensions.NETCore.Setup.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\AWSSDK.S3.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\FluentAssertions.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Humanizer.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Collections.Immutable.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Core.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Data.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Service.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Data.pdb
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Service.pdb
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Core.pdb
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.csproj.AssemblyReference.cache
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.AssemblyInfoInputs.cache
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.AssemblyInfo.cs
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.csproj.CoreCompileInputs.cache
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.MvcApplicationPartsAssemblyInfo.cs
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.MvcApplicationPartsAssemblyInfo.cache
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\staticwebassets.build.json
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\staticwebassets.development.json
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\scopedcss\bundle\Api-Kids-Canvas.styles.css
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.csproj.CopyComplete
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\refint\Api-Kids-Canvas.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.pdb
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.genruntimeconfig.cache
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\ref\Api-Kids-Canvas.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\appsettings.Development.json
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\appsettings.json
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Api-Kids-Canvas.exe
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Api-Kids-Canvas.deps.json
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Api-Kids-Canvas.runtimeconfig.json
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Api-Kids-Canvas.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Api-Kids-Canvas.pdb
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\AutoMapper.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\AWSSDK.Core.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\AWSSDK.Extensions.NETCore.Setup.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\AWSSDK.S3.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\FluentAssertions.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Humanizer.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.DotNet.PlatformAbstractions.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Logging.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Options.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Extensions.Primitives.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Identity.Client.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Collections.Immutable.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Diagnostics.DiagnosticSource.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Drawing.Common.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Runtime.Caching.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Security.Permissions.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\System.Windows.Extensions.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Drawing.Common.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\runtimes\win\lib\netcoreapp3.0\System.Windows.Extensions.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Core.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Data.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Service.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Data.pdb
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Service.pdb
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\bin\Debug\net6.0\Kids-Canvas.Core.pdb
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.csproj.AssemblyReference.cache
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.AssemblyInfoInputs.cache
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.AssemblyInfo.cs
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.csproj.CoreCompileInputs.cache
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.MvcApplicationPartsAssemblyInfo.cs
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.MvcApplicationPartsAssemblyInfo.cache
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\staticwebassets.build.json
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\staticwebassets.development.json
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\scopedcss\bundle\Api-Kids-Canvas.styles.css
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.csproj.CopyComplete
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\refint\Api-Kids-Canvas.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.pdb
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\Api-Kids-Canvas.genruntimeconfig.cache
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Api-Kids-Canvas\obj\Debug\net6.0\ref\Api-Kids-Canvas.dll

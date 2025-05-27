@@ -1,0 +1,51 @@
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Data.deps.json
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Data.runtimeconfig.json
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Data.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Data.pdb
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Core.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Core.pdb
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.csproj.AssemblyReference.cache
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.AssemblyInfoInputs.cache
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.AssemblyInfo.cs
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.csproj.CoreCompileInputs.cache
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.csproj.CopyComplete
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\refint\Kids-Canvas.Data.dll
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.pdb
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.genruntimeconfig.cache
+C:\Users\user1\Documents\כבי\תשפה\net core\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\ref\Kids-Canvas.Data.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Data.deps.json
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Data.runtimeconfig.json
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Data.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Data.pdb
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Core.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Core.pdb
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.csproj.AssemblyReference.cache
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.AssemblyInfoInputs.cache
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.AssemblyInfo.cs
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.csproj.CoreCompileInputs.cache
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.csproj.CopyComplete
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\refint\Kids-Canvas.Data.dll
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.pdb
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.genruntimeconfig.cache
+C:\Development\Chevi\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\ref\Kids-Canvas.Data.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Data.deps.json
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Data.runtimeconfig.json
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Data.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Data.pdb
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Core.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\bin\Debug\net6.0\Kids-Canvas.Core.pdb
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.csproj.AssemblyReference.cache
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.AssemblyInfoInputs.cache
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.AssemblyInfo.cs
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.csproj.CoreCompileInputs.cache
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.csproj.CopyComplete
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\refint\Kids-Canvas.Data.dll
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.pdb
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.genruntimeconfig.cache
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\ref\Kids-Canvas.Data.dll

@@ -1,0 +1,52 @@
+.management-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.management-card {
+  width: 90%;
+  max-width: 800px;
+  padding: 20px;
+}
+
+.drawings-table {
+  width: 100%;
+  margin-top: 20px;
+}
+
+button {
+  margin-left: 5px;
+}
+.management-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* font-family: "Alef", "Assistant", sans-serif; */
+  font-family: Segoe UI, sans-serif;
+  padding: 2rem;
+}
+
+.drawing-card {
+  width: 90%;
+  max-width: 1100px;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 16px;
+}
+
+.button-container {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+table {
+  width: 100%;
+  font-size: 14px;
+}
+
+th, td {
+  text-align: center !important;
+}

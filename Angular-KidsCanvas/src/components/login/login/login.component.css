@@ -1,0 +1,49 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(to right, #f3e5f5, #e1f5fe);
+  direction: rtl;
+}
+
+.login-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  /* background-color: white; */
+}
+
+.login-title {
+  text-align: center;
+  color: #3f51b5;
+  margin-bottom: 1.5rem;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.full-width {
+  width: 100%;
+  margin-bottom: 1rem;
+
+  ::ng-deep .mat-form-field-outline-start {
+    border-right: none !important;
+  }
+
+  ::ng-deep .mat-form-field-outline-end {
+    border-left: none !important;
+  }
+
+  ::ng-deep .mat-form-field-outline {
+    direction: rtl;
+  }
+}
+
+.login-button {
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 8px;
+  padding: 12px;
+}

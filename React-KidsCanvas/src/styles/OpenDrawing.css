@@ -1,0 +1,39 @@
+.drawing-card {
+  border-radius: 16px !important;
+  overflow: hidden;
+  transition: all 0.3s ease !important;
+  height: 100%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1) !important;
+  border: 3px solid transparent;
+}
+
+.drawing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15) !important;
+  border-color: var(--primary-color);
+}
+
+.drawing-image {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.drawing-card:hover .drawing-image {
+  transform: scale(1.05);
+}
+
+.drawing-content {
+  padding: 16px !important;
+}
+
+.drawing-title {
+  font-weight: 600 !important;
+  margin-bottom: 4px !important;
+  font-size: 1rem !important;
+}
+
+.drawing-category {
+  color: #777 !important;
+  font-size: 0.85rem !important;
+}

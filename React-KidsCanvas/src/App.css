@@ -1,0 +1,67 @@
+/* עיצוב עבור ה-header */
+header {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f50380;
+  color: black; /* עדכון צבע הטקסט לשחור */
+  padding: 2rem 3rem; /* הגדלת ה-padding */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header .search input {
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+/* לוגו בצד שמאל */
+header .search {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* כפתורים במרכז */
+header .center-buttons {
+  display: flex;
+  gap: 5rem;
+  justify-content: center;
+}
+
+/* כפתור */
+header .center-buttons button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* header .center-buttons button:hover {
+  background-color: #0056b3;
+} */
+
+.bg-gradient-to-r {
+  background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+}
+.focus\:ring-4:focus {
+  box-shadow: 0 0 0 4px rgba(245, 3, 128, 0.5);
+}
+.text-xl {
+  font-size: 1.25rem;
+}
+.rounded-lg {
+  border-radius: 0.5rem;
+}
+.shadow-2xl {
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+body {
+  font-family: 'Inter', sans-serif;
+}
