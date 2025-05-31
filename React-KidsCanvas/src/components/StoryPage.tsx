@@ -21,12 +21,12 @@ import { Drawing } from "../models/Drawing"
 
 
 const StoryPage = () => {
-    const availableDrawings = useDrawings().drawings
+  const availableDrawings = useDrawings().drawings
   const theme = useTheme()
   const [currentStory, setCurrentStory] = useState("")
   const [selectedDrawings, setSelectedDrawings] = useState<Drawing[]>([])
   const [isLoading, setIsLoading] = useState(false)
-  const [mainDrawing, setMainDrawing] = useState(availableDrawings[0])
+  const mainDrawing = useState(availableDrawings[0])
   const [storyVisible, setStoryVisible] = useState(false)
 
   // Mock AI story
@@ -209,7 +209,7 @@ Minnie returned home with a heart full of love and friends for life. And from th
                           <CardMedia
                             component="img"
                             height="100"
-                            image={drawing.image}
+                           src={drawing.path}
                             alt={drawing.name}
                             sx={{ borderRadius: "10px", objectFit: "cover" }}
                           />
@@ -262,9 +262,9 @@ Minnie returned home with a heart full of love and friends for life. And from th
                 </Typography>
                 <Grid container spacing={1}>
                   {availableDrawings
-                    .filter(
-                      (drawing) => drawing.id !== mainDrawing.id && !selectedDrawings.find((d) => d.id === drawing.id),
-                    )
+                    // .filter(
+                    //   // (drawing) => drawing.id !== mainDrawing && !selectedDrawings.find((d) => d.id === drawing.id),
+                    // )
                     .slice(0, 6)
                     .map((drawing) => (
                       <Grid item xs={4} key={drawing.id}>
@@ -285,7 +285,7 @@ Minnie returned home with a heart full of love and friends for life. And from th
                           <CardMedia
                             component="img"
                             height="80"
-                            image={drawing.image}
+                            src={drawing.path}
                             alt={drawing.name}
                             sx={{ objectFit: "cover" }}
                           />

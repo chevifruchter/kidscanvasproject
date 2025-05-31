@@ -1,6 +1,4 @@
-import { use } from "react";
 import { user } from "../models/User";
-import { useUserContext } from "../Context/userContext";
 
 
 export const Service = {
@@ -63,33 +61,3 @@ export const Service = {
 };
 
 
-
-
-
-// import React, { useEffect } from 'react';
-// import { useUserContext} from '../Context/userContext'; // Adjust the import path as needed
-
-// const Service: React.FC = () => {
-//     const { setUsers } = useUserContext();
-
-//     useEffect(() => {
-//         const fetchUsers = async () => {
-//             try {
-//                 const response = await fetch('https://localhost:7001/api/Users'); // Adjust the endpoint as needed
-//                 if (!response.ok) {
-//                     throw new Error('Failed to fetch users');
-//                 }
-//                 const data = await response.json();
-//                 setUsers(data);
-//             } catch (error) {
-//                 console.error('Error fetching users:', error);
-//             }
-//         };
-
-//         fetchUsers();
-//     }, [setUsers]);
-
-//      return <div></div>;
-// };
-
-// export default Service;

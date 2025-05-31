@@ -25,7 +25,6 @@ import {
     Palette as PaletteIcon,
     AutoAwesome as AutoAwesomeIcon,
     Speed as SpeedIcon,
-    SecurityUpdateTwoTone,
 } from "@mui/icons-material"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
 import { styled } from "@mui/system"

@@ -43,9 +43,6 @@ header .center-buttons button {
   transition: background-color 0.3s ease;
 }
 
-/* header .center-buttons button:hover {
-  background-color: #0056b3;
-} */
 
 .bg-gradient-to-r {
   background: linear-gradient(to right, #fbc2eb, #a6c1ee);

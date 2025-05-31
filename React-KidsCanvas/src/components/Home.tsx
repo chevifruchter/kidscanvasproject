@@ -1,9 +1,8 @@
-import React, { use, useContext, useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Drawing } from "../models/Drawing";
-import { SearchContext, useSearch } from "../Context/searchContext";
-import { Modal, Box, Stack, Button, IconButton, Tooltip } from "@mui/material";
+import {  useSearch } from "../Context/searchContext";
+import { IconButton, Tooltip } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import { Service as DowonloadService } from '../services/DowonloadService';
 import { useDrawings } from "../Context/drawingContext";
 import Footer from "./Footer";
 
@@ -14,7 +13,6 @@ const Home = () => {
   // const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const navigate = useNavigate();
   const setSelectedDrawing = useDrawings().setSelectedDrawing
-  const selectedDrawing = useDrawings().selectedDrawing
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,8 +32,8 @@ const Home = () => {
           }
           const categoriesData = await categoriesResponse.json();
           setCategories(categoriesData); // שמירת הקטגוריות ב-state
+          categories.map(()=>{})
         }
-        // drawingContext.setCategories(categoriesData); // שמירת הקטגוריות ב-Context
       } catch (error) {
         console.error('Error fetching data:', error);
       }

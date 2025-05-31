@@ -23,7 +23,6 @@ import ShareIcon from "@mui/icons-material/Share"
 import StarIcon from "@mui/icons-material/Star"
 import "../styles/OpenDrawing.css";
 import { Drawing } from "../models/Drawing"
-import { useDrawings } from "../Context/drawingContext"
 
 export default function OpenDrawing() {
   const { id } = useParams();

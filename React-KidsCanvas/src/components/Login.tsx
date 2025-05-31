@@ -1,17 +1,14 @@
-import React, { use, useContext, useState } from 'react';
+import React, {  useState } from 'react';
 import { useUserContext } from '../Context/userContext';
-// import {Service} from '../services/LoginService';
 import { Service as LoginService } from '../services/LoginService';
 
 const Login: React.FC = () => {
-  // const users = useUserContext();
   const { setMyUser } = useUserContext();
   const [loginName, setLoginName] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
 
   const handleLogin = async (e: React.FormEvent) => {
-  //  e.preventDefault(); // מונע רענון דף
     console.log("name: ", loginName," password:", loginPassword);
     e.preventDefault();
     const foundUser = await LoginService.login(loginName, loginPassword);

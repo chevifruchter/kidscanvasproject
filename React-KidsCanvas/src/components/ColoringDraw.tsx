@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Drawing } from '../models/Drawing';
 import {
     Box,
-    Button,
     IconButton,
     Slider,
     Tooltip,
