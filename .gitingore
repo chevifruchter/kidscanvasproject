@@ -28,6 +28,7 @@ pnpm-debug.log*
 /React-KidsCanvas/.env.development.local
 /React-KidsCanvas/.env.test.local
 /React-KidsCanvas/.env.production.local
+.env
 
 # === Angular ===
 /Angular-KidsCanvas/node_modules/

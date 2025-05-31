@@ -23,7 +23,7 @@ pnpm-debug.log*
 # === React ===
 /React-KidsCanvas/node_modules/
 /React-KidsCanvas/build/
-/React-KidsCanvas/.env
+../../React-KidsCanvas/.env
 /React-KidsCanvas/.env.local
 /React-KidsCanvas/.env.development.local
 /React-KidsCanvas/.env.test.local

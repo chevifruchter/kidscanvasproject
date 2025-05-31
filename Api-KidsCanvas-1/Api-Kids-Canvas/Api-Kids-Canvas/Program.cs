@@ -127,6 +127,7 @@ var app = builder.Build();
 app.UseCors(MyAllowSpecificOrigins);
 
 // Configure the HTTP request pipeline.
+builder.Services.AddHttpClient();
 
 app.UseSwagger();
 
