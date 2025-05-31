@@ -19,7 +19,7 @@ import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import "../styles/ColoringDraw.css";
 
-export default function ColoringCanvas() {
+export default function ColoringDraw() {
     const [drawings, setDrawings] = useState<Drawing[]>([]);
     const [selectedImage, setSelectedImage] = useState<Drawing | null>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -44,8 +44,6 @@ export default function ColoringCanvas() {
             img.src = selectedImage?.path;
             // canvasRef.current.width = selectedImage?.width;
             // canvasRef.current.height = selectedImage.height;
-            canvasRef.current.width = 600;
-            canvasRef.current.height = 350;
             img.onload = () => {
                 const canvas = canvasRef.current;
                 if (!canvas) {
@@ -200,7 +198,7 @@ export default function ColoringCanvas() {
         link.click();
     };
 
- return (
+    return (
         <Box sx={{ textAlign: 'center', p: 3, fontFamily: 'Arial' }}>
             {!selectedImage ? (
                 <Box>
@@ -244,13 +242,11 @@ export default function ColoringCanvas() {
                         onMouseDown={startDrawing}
                         onMouseMove={draw}
                         onMouseUp={finishDrawing}
+                        onMouseLeave={finishDrawing}
                         onClick={handleCanvasClick}
                         className="drawing-canvas"
-                        style={{
-                            // width: `${canvasRef.current?.width}px`,
-                            // height: `${canvasRef.current?.height}px`
-                        }}
                     />
+
 
                     <Box sx={{ display: 'flex', flexDirection: 'column', gap: 1 }}>
                         <Tooltip title="מברשת">
@@ -268,7 +264,7 @@ export default function ColoringCanvas() {
                                 <AutoFixNormalIcon />
                             </IconButton>
                         </Tooltip>
-                       <Divider sx={{ my: 1 }} />
+                        <Divider sx={{ my: 1 }} />
                         <Typography variant="caption">גודל מברשת</Typography>
                         <Slider
                             min={1}

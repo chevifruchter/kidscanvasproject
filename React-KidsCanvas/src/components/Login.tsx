@@ -18,6 +18,11 @@ const Login: React.FC = () => {
     if (foundUser) {
       alert("התחברות בוצעה בהצלחה");
       setMyUser(foundUser);
+      if (rememberMe) {
+        localStorage.setItem('user', JSON.stringify(foundUser));
+      } else {
+        sessionStorage.setItem('user', JSON.stringify(foundUser));
+      }
     }
   };
   return (

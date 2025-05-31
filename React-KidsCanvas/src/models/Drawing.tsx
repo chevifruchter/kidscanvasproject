@@ -9,7 +9,7 @@
   //   height: number|undefined;
   //   // Add other properties if needed
   // }
-  export interface Drawing {
+  export type Drawing = {
   id: string
   name: string
   path: string

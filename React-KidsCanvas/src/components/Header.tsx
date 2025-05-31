@@ -29,9 +29,9 @@ export default function Header() {
 
           {/* Navigation */}
           <nav className="navigation">
-            <Link to="/">
+            <Link to="/story-page">
               <Button variant="contained" color="primary" className="nav-button">
-                Coloring Pages
+                Story Page
               </Button>
             </Link>
             <Link to="/coloring-game">

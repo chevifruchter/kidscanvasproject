@@ -94,11 +94,17 @@ body {
   width: 100%;
 }
 
+
+
 body {
-  background: linear-gradient(to bottom, #f8f9fa, var(--background-color));
+  /* background: linear-gradient(to bottom, #f8f9fa, var(--background-color)); */
   color: var(--foreground-color);
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to right, #f3e5f5, #caecfb);
+  min-height: 100vh;
 }
 
 a {

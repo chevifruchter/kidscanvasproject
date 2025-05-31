@@ -23,18 +23,25 @@ import ShareIcon from "@mui/icons-material/Share"
 import StarIcon from "@mui/icons-material/Star"
 import "../styles/OpenDrawing.css";
 import { Drawing } from "../models/Drawing"
+import { useDrawings } from "../Context/drawingContext"
 
 export default function OpenDrawing() {
-  const { id } = useParams<{ id: string }>()
+  const { id } = useParams();
+  console.log(`drawingcontext ${id}`);
+  
   const navigate = useNavigate()
   const [drawing, setDrawing] = useState<Drawing | null>(null)
   const [relatedDrawings, setRelatedDrawings] = useState<Drawing[]>([])
-//   const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+      
+    if(id) 
+    console.log("Fetching drawing details for ID:", id);
+    
     const fetchDrawingDetails = async () => {
       try {
-        // setIsLoading(true)
+        setIsLoading(true)
         // Fetch the specific drawing
         const response = await fetch(`https://localhost:7001/api/Drawings/${id}`)
         if (!response.ok) {
@@ -42,7 +49,8 @@ export default function OpenDrawing() {
         }
         const data = await response.json()
         setDrawing(data)
-
+        console.log("data"+data);
+        
         // Fetch related drawings (same category or random)
         const relatedResponse = await fetch("https://localhost:7001/api/Drawings")
         if (!relatedResponse.ok) {
@@ -57,7 +65,7 @@ export default function OpenDrawing() {
       } catch (error) {
         console.error("Error fetching drawing details:", error)
       } finally {
-        // setIsLoading(false)
+        setIsLoading(false)
       }
     }
 
@@ -82,16 +90,16 @@ export default function OpenDrawing() {
     navigate(`/coloring-game?id=${drawing.id}`)
   }
 
-//   if (isLoading) {
-//     return (
-//       <div className="loading-container">
-//         <div className="loading-spinner"></div>
-//         <Typography variant="h6" className="loading-text">
-//           Loading drawing details...
-//         </Typography>
-//       </div>
-//     )
-//   }
+  if (isLoading) {
+    return (
+      <div className="loading-container">
+        <div className="loading-spinner"></div>
+        <Typography variant="h6" className="loading-text">
+          Loading drawing details...
+        </Typography>
+      </div>
+    )
+  }
 
   if (!drawing) {
     return (

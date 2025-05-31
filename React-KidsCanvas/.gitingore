@@ -1,0 +1,55 @@
+# === כלליים ===
+node_modules/
+dist/
+build/
+.env
+.env.local
+.env.*.local
+.vscode/
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.swp
+
+# === React ===
+/React-KidsCanvas/node_modules/
+/React-KidsCanvas/build/
+/React-KidsCanvas/.env
+/React-KidsCanvas/.env.local
+/React-KidsCanvas/.env.development.local
+/React-KidsCanvas/.env.test.local
+/React-KidsCanvas/.env.production.local
+.env
+/src/secret.json
+/src/.env
+/.env
+/.env.local
+/.env.development.local
+/.env.test.local
+/.env.production.local
+# === Angular ===
+/Angular-KidsCanvas/node_modules/
+/Angular-KidsCanvas/dist/
+/Angular-KidsCanvas/.angular/cache/
+/Angular-KidsCanvas/.env
+
+# === .NET ===
+/Api-KidsCanvas-1/Api-Kids-Canvas/bin/
+/Api-KidsCanvas-1/obj/
+/Api-KidsCanvas-1/*.user
+/Api-KidsCanvas-1/*.suo
+/Api-KidsCanvas-1/*.vspscc
+/Api-KidsCanvas-1/.vs/
+/Api-KidsCanvas-1/.idea/
+/Api-KidsCanvas-1/Properties/launchSettings.json
+
+

@@ -64,4 +64,5 @@ header .center-buttons button {
 }
 body {
   font-family: 'Inter', sans-serif;
+   overflow-x: hidden;
 }

@@ -36,8 +36,30 @@
 }
 
 .drawing-canvas {
-  border: 2px solid #333;
   border-radius: 10px;
   background: #fff;
   cursor: crosshair;
+}
+
+
+
+
+
+
+
+
+
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+
+canvas {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
 }
