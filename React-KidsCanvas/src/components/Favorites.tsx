@@ -207,7 +207,19 @@ export default function Favorites() {
           <Box className="favorites-grid-container">
             <Grid container spacing={3}>
               {filteredFavorites.map((drawing, index) => (
-                <Grid item xs={12} sm={6} md={4} lg={3} key={drawing.id}>
+                <Box
+                  key={drawing.id}
+                  sx={{
+                    width: {
+                      xs: '100%',    // xs=12 → 100%
+                      sm: '50%',     // sm=6 → 6/12 = 50%
+                      md: '33.33%',  // md=4 → 4/12 ≈ 33.33%
+                      lg: '25%',     // lg=3 → 3/12 = 25%
+                    },
+                    boxSizing: 'border-box',
+                    p: 1, // אם תרצה ריווח פנימי כמו ב-Grid spacing
+                  }}
+                >
                   <Fade in={true} timeout={300 + index * 100}>
                     <Card className="favorite-card">
                       <Box className="card-image-container">
@@ -255,7 +267,7 @@ export default function Favorites() {
                       </CardActions>
                     </Card>
                   </Fade>
-                </Grid>
+                </Box>
               ))}
             </Grid>
           </Box>
@@ -265,7 +277,15 @@ export default function Favorites() {
       {/* Promotional Section */}
       <Paper elevation={3} className="promo-section">
         <Grid container spacing={4} alignItems="center">
-          <Grid item xs={12} md={6}>
+          <Box
+            sx={{
+              width: {
+                xs: '100%',  // xs=12 → 100%
+                md: '50%',   // md=6 → 6/12 = 50%
+              },
+              boxSizing: 'border-box',
+            }}
+          >
             <Typography variant="h4" className="promo-title">
               💝 Share Your Favorites
             </Typography>
@@ -281,8 +301,16 @@ export default function Favorites() {
                 Share with Friends
               </Button>
             </Box>
-          </Grid>
-          <Grid item xs={12} md={6}>
+          </Box>
+          <Box
+            sx={{
+              width: {
+                xs: '100%',  // xs=12 → 100%
+                md: '50%',   // md=6 → 6/12 = 50%
+              },
+              boxSizing: 'border-box',
+            }}
+          >
             <Box className="promo-image-container">
               <img
                 src="/placeholder.svg?height=300&width=400&text=Happy+Kids+Sharing"
@@ -290,7 +318,7 @@ export default function Favorites() {
                 className="promo-image"
               />
             </Box>
-          </Grid>
+          </Box>
         </Grid>
       </Paper>
 

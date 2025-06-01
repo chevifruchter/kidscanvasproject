@@ -15,7 +15,6 @@ import {
     CardMedia,
     CardActions,
     CardContent,
-    Grid,
 } from "@mui/material"
 import {
     PhotoCamera as PhotoCameraIcon,
@@ -28,7 +27,7 @@ import {
 } from "@mui/icons-material"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
 import { styled } from "@mui/system"
-
+import { Grid } from '@mui/material';
 // Define types for dot configurations
 interface WaterColorDotProps {
     top?: string
@@ -511,7 +510,13 @@ export default function AiDrawGenerator() {
                                     Your AI Creation
                                 </SectionTitle>
                                 <Grid container spacing={3} justifyContent="center">
-                                    <Grid item xs={12} md={8}>
+                                    <Box
+                                        sx={{
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            width: { xs: '100%', md: '66.66%' }, // 8/12 = 66.66%
+                                        }}
+                                    >
                                         <ImagePreviewCard>
                                             <CardMedia
                                                 component="img"
@@ -550,89 +555,11 @@ export default function AiDrawGenerator() {
                                                 </Button>
                                             </CardActions>
                                         </ImagePreviewCard>
-                                    </Grid>
+                                    </Box>
                                 </Grid>
                             </MainCard>
                         </Fade>
                     )}
-
-
-                    {/* Premium Features */}
-                    <PremiumSection elevation={0}>
-                        <Box sx={{ position: "relative", zIndex: 2 }}>
-                            <Typography
-                                variant="h4"
-                                sx={{
-                                    fontWeight: 700,
-                                    mb: 3,
-                                    display: "flex",
-                                    alignItems: "center",
-                                    gap: 1,
-                                }}
-                            >
-                                <StarIcon sx={{ fontSize: "2rem" }} />
-                                Premium Features
-                            </Typography>
-                            <Grid container spacing={3}>
-                                <Grid item xs={12} md={4}>
-                                    <Box sx={{ textAlign: "center" }}>
-                                        <SpeedIcon sx={{ fontSize: "3rem", mb: 1 }} />
-                                        <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                                            HD Quality
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ opacity: 0.9 }}>
-                                            Get ultra-high resolution coloring pages
-                                        </Typography>
-                                    </Box>
-                                </Grid>
-                                <Grid item xs={12} md={4}>
-                                    <Box sx={{ textAlign: "center" }}>
-                                        <PaletteIcon sx={{ fontSize: "3rem", mb: 1 }} />
-                                        <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                                            Style Options
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ opacity: 0.9 }}>
-                                            Choose from multiple artistic styles
-                                        </Typography>
-                                    </Box>
-                                </Grid>
-                                <Grid item xs={12} md={4}>
-                                    <Box sx={{ textAlign: "center" }}>
-                                        <AutoAwesomeIcon sx={{ fontSize: "3rem", mb: 1 }} />
-                                        <Typography variant="h6" sx={{ fontWeight: 600, mb: 1 }}>
-                                            Instant Generation
-                                        </Typography>
-                                        <Typography variant="body2" sx={{ opacity: 0.9 }}>
-                                            No waiting time for premium users
-                                        </Typography>
-                                    </Box>
-                                </Grid>
-                            </Grid>
-                            <Box sx={{ textAlign: "center", mt: 4 }}>
-                                <Button
-                                    variant="contained"
-                                    size="large"
-                                    sx={{
-                                        background: "rgba(255,255,255,0.2)",
-                                        color: "white",
-                                        borderRadius: "25px",
-                                        px: 4,
-                                        py: 1.5,
-                                        fontSize: "1.1rem",
-                                        fontWeight: 600,
-                                        backdropFilter: "blur(10px)",
-                                        border: "1px solid rgba(255,255,255,0.3)",
-                                        "&:hover": {
-                                            background: "rgba(255,255,255,0.3)",
-                                            transform: "translateY(-2px)",
-                                        },
-                                    }}
-                                >
-                                    Upgrade to Premium
-                                </Button>
-                            </Box>
-                        </Box>
-                    </PremiumSection>
 
                     {/* Bottom CTA Section */}
                     <BottomSection elevation={0}>
@@ -702,7 +629,7 @@ export default function AiDrawGenerator() {
                 />
 
                 {/* Global styles for animations */}
-                <style jsx global>{`
+                <style>{`
           @keyframes float {
             0%, 100% { 
               transform: translateY(0px); 

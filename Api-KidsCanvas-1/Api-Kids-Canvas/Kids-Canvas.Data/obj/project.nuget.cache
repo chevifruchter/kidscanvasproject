@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "wGsPOZvHSxTxxWdaUFuJ1VQacS00RxydETw18efyvVOSEyDMeyUNjrJQEOa/Ae6jufU5AiH+6KDJZbUGLJp/KQ==",
+  "dgSpecHash": "E1JejuJJpCU=",
   "success": true,
   "projectFilePath": "C:\\Development\\new\\FullstackProject\\Api-KidsCanvas-1\\Api-Kids-Canvas\\Kids-Canvas.Data\\Kids-Canvas.Data.csproj",
   "expectedPackageFiles": [
@@ -39,7 +39,9 @@
     "C:\\Users\\user1\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\user1\\.nuget\\packages\\mysqlconnector\\2.1.2\\mysqlconnector.2.1.2.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\newtonsoft.json\\9.0.1\\newtonsoft.json.9.0.1.nupkg.sha512",
+    "C:\\Users\\user1\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\6.0.3\\pomelo.entityframeworkcore.mysql.6.0.3.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\runtime.native.system\\4.0.0\\runtime.native.system.4.0.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\system.appcontext\\4.1.0\\system.appcontext.4.1.0.nupkg.sha512",
     "C:\\Users\\user1\\.nuget\\packages\\system.collections\\4.3.0\\system.collections.4.3.0.nupkg.sha512",

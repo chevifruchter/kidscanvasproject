@@ -17,6 +17,7 @@ using Amazon;
 using FluentAssertions.Common;
 using Amazon.Runtime;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -128,6 +129,15 @@ app.UseCors(MyAllowSpecificOrigins);
 
 // Configure the HTTP request pipeline.
 builder.Services.AddHttpClient();
+
+builder.Configuration.AddUserSecrets<Program>();
+
+// הוספת DbContext
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("DbConnectionString");
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+});
 
 app.UseSwagger();
 

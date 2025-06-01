@@ -27,17 +27,17 @@ import { Drawing } from "../models/Drawing"
 export default function OpenDrawing() {
   const { id } = useParams();
   console.log(`drawingcontext ${id}`);
-  
+
   const navigate = useNavigate()
   const [drawing, setDrawing] = useState<Drawing | null>(null)
   const [relatedDrawings, setRelatedDrawings] = useState<Drawing[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-      
-    if(id) 
-    console.log("Fetching drawing details for ID:", id);
-    
+
+    if (id)
+      console.log("Fetching drawing details for ID:", id);
+
     const fetchDrawingDetails = async () => {
       try {
         setIsLoading(true)
@@ -48,8 +48,8 @@ export default function OpenDrawing() {
         }
         const data = await response.json()
         setDrawing(data)
-        console.log("data"+data);
-        
+        console.log("data" + data);
+
         // Fetch related drawings (same category or random)
         const relatedResponse = await fetch("https://localhost:7001/api/Drawings")
         if (!relatedResponse.ok) {
@@ -119,7 +119,15 @@ export default function OpenDrawing() {
       <Paper elevation={3} className="main-content-paper">
         <Grid container spacing={4}>
           {/* Drawing Image */}
-          <Grid item xs={12} md={7}>
+          <Box
+            sx={{
+              width: {
+                xs: '100%',      // xs=12 → 12/12 = 100%
+                md: '58.3333%',  // md=7 → 7/12 ≈ 58.33%
+              },
+              boxSizing: 'border-box',
+            }}
+          >
             <div className="drawing-image-container">
               <img src={drawing.path || "/placeholder.svg"} alt={drawing.name} className="drawing-image" />
               <div className="drawing-actions">
@@ -141,10 +149,18 @@ export default function OpenDrawing() {
                 </Button>
               </div>
             </div>
-          </Grid>
+          </Box>
 
           {/* Drawing Details */}
-          <Grid item xs={12} md={5}>
+          <Box
+            sx={{
+              width: {
+                xs: '100%',      // xs=12 → 12/12 = 100%
+                md: '41.6667%',  // md=5 → 5/12 ≈ 41.67%
+              },
+              boxSizing: 'border-box',
+            }}
+          >
             <div className="drawing-details">
               <Typography variant="h3" component="h1" className="drawing-title">
                 {drawing.name}
@@ -222,7 +238,7 @@ export default function OpenDrawing() {
                 </div>
               </div>
             </div>
-          </Grid>
+          </Box>
         </Grid>
       </Paper>
 
@@ -234,7 +250,17 @@ export default function OpenDrawing() {
 
         <Grid container spacing={3}>
           {relatedDrawings.map((relatedDrawing) => (
-            <Grid item xs={6} sm={4} md={2} key={relatedDrawing.id}>
+            <Box
+              key={relatedDrawing.id}
+              sx={{
+                width: {
+                  xs: '50%',       // xs=6 → 6/12 = 50%
+                  sm: '33.3333%',  // sm=4 → 4/12 ≈ 33.33%
+                  md: '16.6667%',  // md=2 → 2/12 ≈ 16.67%
+                },
+                boxSizing: 'border-box',
+              }}
+            >
               <Card className="related-drawing-card">
                 <CardActionArea onClick={() => navigate(`/drawing/${relatedDrawing.id}`)}>
                   <CardMedia
@@ -250,7 +276,7 @@ export default function OpenDrawing() {
                   </CardContent>
                 </CardActionArea>
               </Card>
-            </Grid>
+            </Box>
           ))}
         </Grid>
       </div>
@@ -258,7 +284,15 @@ export default function OpenDrawing() {
       {/* Promotional Section */}
       <Paper elevation={3} className="promo-section">
         <Grid container spacing={2} alignItems="center">
-          <Grid item xs={12} md={7}>
+          <Box
+            sx={{
+              width: {
+                xs: '100%',      // xs=12 → 12/12 = 100%
+                md: '58.3333%',  // md=7 → 7/12 ≈ 58.33%
+              },
+              boxSizing: 'border-box',
+            }}
+          >
             <Typography variant="h4" component="h2" className="promo-title">
               Discover the Joy of Coloring!
             </Typography>
@@ -278,8 +312,16 @@ export default function OpenDrawing() {
                 Explore All Drawings
               </Button>
             </Box>
-          </Grid>
-          <Grid item xs={12} md={5}>
+          </Box>
+          <Box
+            sx={{
+              width: {
+                xs: '100%',      // xs=12 → 12/12 = 100%
+                md: '41.6667%',  // md=5 → 5/12 ≈ 41.67%
+              },
+              boxSizing: 'border-box',
+            }}
+          >
             <div className="promo-image-container">
               {/* <img
                 src="/placeholder.svg?height=300&width=400&text=Kids+Having+Fun+Coloring"
@@ -287,14 +329,22 @@ export default function OpenDrawing() {
                 className="promo-image"
               /> */}
             </div>
-          </Grid>
+          </Box>
         </Grid>
       </Paper>
 
       {/* Second Promotional Section */}
       <Paper elevation={3} className="promo-section second-promo">
         <Grid container spacing={2} alignItems="center" direction="row-reverse">
-          <Grid item xs={12} md={7}>
+          <Box
+            sx={{
+              width: {
+                xs: '100%',      // xs=12 → 12/12 = 100%
+                md: '58.3333%',  // md=7 → 7/12 ≈ 58.33%
+              },
+              boxSizing: 'border-box',
+            }}
+          >
             <Typography variant="h4" component="h2" className="promo-title">
               Try Our AI Coloring Generator!
             </Typography>
@@ -313,8 +363,16 @@ export default function OpenDrawing() {
                 Create Custom Drawing
               </Button>
             </Box>
-          </Grid>
-          <Grid item xs={12} md={5}>
+          </Box>
+          <Box
+            sx={{
+              width: {
+                xs: '100%',      // xs=12 → 12/12 = 100%
+                md: '41.6667%',  // md=5 → 5/12 ≈ 41.67%
+              },
+              boxSizing: 'border-box',
+            }}
+          >
             <div className="promo-image-container">
               {/* <img
                 src="/placeholder.svg?height=300&width=400&text=AI+Generated+Coloring+Pages"
@@ -322,7 +380,7 @@ export default function OpenDrawing() {
                 className="promo-image"
               /> */}
             </div>
-          </Grid>
+          </Box>
         </Grid>
       </Paper>
     </Container>
