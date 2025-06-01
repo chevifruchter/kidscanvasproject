@@ -28,7 +28,6 @@ export default function ColoringDraw() {
     const [isDrawing, setIsDrawing] = useState(false);
     const [history, setHistory] = useState<string[]>([]);
     const [redoStack, setRedoStack] = useState<string[]>([]);
-    const [drawToCanvas, setDrawToCanvas] = useState<Drawing | null>(null);
 
     useEffect(() => {
         fetch('https://localhost:7001/api/Drawings')
@@ -269,7 +268,7 @@ export default function ColoringDraw() {
                             min={1}
                             max={50}
                             value={brushSize}
-                            onChange={(e, val) => setBrushSize(val as number)}
+                            onChange={(e, val) => {setBrushSize(val as number);e}}
                             size="small"
                             sx={{ width: 100 }}
                         />

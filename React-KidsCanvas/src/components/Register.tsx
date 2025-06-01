@@ -15,7 +15,6 @@ const Register: React.FC = () => {
       return;
     }
     RegisterService.register(name, phone, email, password);
-    const newUser = { name, phone, email, password };
   };
 
   return (
