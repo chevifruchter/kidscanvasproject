@@ -34,4 +34,3 @@ C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas
 C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Core\obj\Debug\net6.0\refint\Kids-Canvas.Core.dll
 C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Core\obj\Debug\net6.0\Kids-Canvas.Core.pdb
 C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Core\obj\Debug\net6.0\ref\Kids-Canvas.Core.dll
-C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Core\obj\Debug\net6.0\Kids-Canvas.Core.sourcelink.json

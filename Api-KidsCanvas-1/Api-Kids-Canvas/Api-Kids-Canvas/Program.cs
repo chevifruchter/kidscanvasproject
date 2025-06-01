@@ -122,6 +122,12 @@ builder.Services.AddCors(options =>
 });
 
 builder.Services.AddAutoMapper(typeof(MappinProfile));
+// הוספת DbContext
+builder.Services.AddDbContext<DataContext>(options =>
+{
+    var connectionString = builder.Configuration.GetConnectionString("DbConnectionString");
+    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+});
 
 var app = builder.Build();
 
@@ -132,12 +138,7 @@ builder.Services.AddHttpClient();
 
 builder.Configuration.AddUserSecrets<Program>();
 
-// הוספת DbContext
-builder.Services.AddDbContext<DataContext>(options =>
-{
-    var connectionString = builder.Configuration.GetConnectionString("DbConnectionString");
-    options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
-});
+
 
 app.UseSwagger();
 

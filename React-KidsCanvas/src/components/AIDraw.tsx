@@ -23,7 +23,6 @@ import {
     Star as StarIcon,
     Palette as PaletteIcon,
     AutoAwesome as AutoAwesomeIcon,
-    Speed as SpeedIcon,
 } from "@mui/icons-material"
 import { ThemeProvider, createTheme } from "@mui/material/styles"
 import { styled } from "@mui/system"
@@ -199,7 +198,7 @@ const GenerateButton = styled(Button)(({ theme }) => ({
     },
 }))
 
-const ImagePreviewCard = styled(Card)(({ theme }) => ({
+const ImagePreviewCard = styled(Card)(() => ({
     borderRadius: "20px",
     overflow: "hidden",
     boxShadow: "0 8px 30px rgba(0,0,0,0.15)",
@@ -212,15 +211,7 @@ const ImagePreviewCard = styled(Card)(({ theme }) => ({
     },
 }))
 
-const PremiumSection = styled(Paper)(({ theme }) => ({
-    background: "linear-gradient(135deg, #ff9800 0%, #f57c00 100%)",
-    borderRadius: "24px",
-    padding: theme.spacing(4),
-    color: "white",
-    marginBottom: theme.spacing(4),
-    position: "relative",
-    overflow: "hidden",
-}))
+
 
 const BottomSection = styled(Paper)(({ theme }) => ({
     background: "linear-gradient(135deg, #2196f3 0%, #1976d2 100%)",
@@ -237,7 +228,7 @@ interface WaterColorDotStyleProps {
     opacity: number
 }
 
-const WaterColorDot = styled(Box)<WaterColorDotStyleProps>(({ theme, size = 12, opacity = 0.8 }) => ({
+const WaterColorDot = styled(Box)<WaterColorDotStyleProps>(({size = 12, opacity = 0.8 }) => ({
     width: `${size}px`,
     height: `${size}px`,
     borderRadius: "50%",

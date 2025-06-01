@@ -48,5 +48,4 @@ C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas
 C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.pdb
 C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.genruntimeconfig.cache
 C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\ref\Kids-Canvas.Data.dll
-C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.sourcelink.json
-C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Can.26736CAA.Up2Date
+C:\Development\new\FullstackProject\Api-KidsCanvas-1\Api-Kids-Canvas\Kids-Canvas.Data\obj\Debug\net6.0\Kids-Canvas.Data.csproj.CopyComplete
