@@ -36,7 +36,7 @@ export const Service = {
             console.log("register service: ", userName, password);
 
             try {
-                const response = await fetch('https://localhost:7001/api/Auth/register', {
+                const response = await fetch(`${base_url}/api/Auth/register`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({

@@ -129,6 +129,7 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
 });
 
+
 var app = builder.Build();
 
 app.UseCors(MyAllowSpecificOrigins);
