@@ -115,7 +115,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
         policy =>
         {
-            policy.AllowAnyOrigin() // הרשה ל-React
+            policy.WithOrigins("https://kidscanvasproject-1.onrender.com", "https://kidscanvasproject-2.onrender.com") // הרשה ל-React
                   .AllowAnyMethod() // GET, POST, PUT, DELETE...
                   .AllowAnyHeader(); // כותרות כמו Authorization, Content-Type...
         });
