@@ -1,12 +1,12 @@
 import { user } from "../models/User";
 
+const base_url = import.meta.env.VITE_BASE_URL_API;
 
 export const Service = {
-
   login: async (userName: string, password: string) => {
     console.log("login service: ", userName, password);
     try {
-      const response = await fetch('https://localhost:7001/api/Auth', {
+      const response = await fetch(`${base_url}/api/Auth`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -18,9 +18,13 @@ export const Service = {
       if (response.ok) {
         const data = await response.json();
         localStorage.setItem('token', data.token);
-        alert("התחברת בהצלחה!");
-      } else {
-        alert("פרטים שגויים");
+        if (data.Role === "admin") {
+          // הפניה לאפליקציית Angular
+          window.location.href = "https://kidscanvasproject-2.onrender.com";
+          alert("התחברת בהצלחה!");
+        } else {
+          alert("פרטים שגויים");
+        }
       }
     } catch (error) {
       console.error('error in the autothication:', error);
@@ -32,7 +36,7 @@ export const Service = {
     console.log("token: ", token);
 
     try {
-      const response = await fetch('https://localhost:7001/api/Users', {
+      const response = await fetch(`${base_url}/api/Users`, {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -50,7 +54,7 @@ export const Service = {
       if (Array.isArray(userData)) {
         found = userData.find((u: any) => u.name === userName && u.password === password);
       }
-      console.log("foundUser ",found);
+      console.log("foundUser ", found);
 
       return found;
     } catch (error) {

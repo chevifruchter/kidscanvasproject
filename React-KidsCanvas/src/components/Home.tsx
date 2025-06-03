@@ -13,12 +13,12 @@ const Home = () => {
   // const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const navigate = useNavigate();
   const setSelectedDrawing = useDrawings().setSelectedDrawing
-
+const base_url = import.meta.env.VITE_BASE_URL_API;
   useEffect(() => {
     const fetchData = async () => {
       try {
         // קריאה לשרת עבור הציורים
-        const drawingsResponse = await fetch('https://localhost:7001/api/Drawings');
+        const drawingsResponse = await fetch(`${base_url}/api/Drawings`);
         if (!drawingsResponse.ok) {
           throw new Error('Failed to fetch drawings');
         }
@@ -26,7 +26,7 @@ const Home = () => {
         setDrawing(drawingsData);
         if (drawingsData) {
           // קריאה לשרת עבור הקטגוריות
-          const categoriesResponse = await fetch('https://localhost:7001/api/Category');
+          const categoriesResponse = await fetch(`${base_url}/api/Category`);
           if (!categoriesResponse.ok) {
             throw new Error('Failed to fetch categories');
           }

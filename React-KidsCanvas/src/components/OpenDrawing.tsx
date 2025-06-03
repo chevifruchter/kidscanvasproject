@@ -32,7 +32,7 @@ export default function OpenDrawing() {
   const [drawing, setDrawing] = useState<Drawing | null>(null)
   const [relatedDrawings, setRelatedDrawings] = useState<Drawing[]>([])
   const [isLoading, setIsLoading] = useState(true)
-
+const base_url = import.meta.env.VITE_BASE_URL_API;
   useEffect(() => {
 
     if (id)
@@ -42,7 +42,7 @@ export default function OpenDrawing() {
       try {
         setIsLoading(true)
         // Fetch the specific drawing
-        const response = await fetch(`https://localhost:7001/api/Drawings/${id}`)
+        const response = await fetch(`${base_url}/api/Drawings${id}`)
         if (!response.ok) {
           throw new Error("Failed to fetch drawing details")
         }
@@ -51,7 +51,7 @@ export default function OpenDrawing() {
         console.log("data" + data);
 
         // Fetch related drawings (same category or random)
-        const relatedResponse = await fetch("https://localhost:7001/api/Drawings")
+        const relatedResponse = await fetch(`${base_url}/api/Drawings`)
         if (!relatedResponse.ok) {
           throw new Error("Failed to fetch related drawings")
         }

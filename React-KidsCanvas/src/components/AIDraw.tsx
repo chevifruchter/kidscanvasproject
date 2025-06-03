@@ -253,7 +253,6 @@ export default function AiDrawGenerator() {
     const [error, setError] = useState<string>("")
     const [snackbarOpen, setSnackbarOpen] = useState<boolean>(false)
     const [snackbarMessage, setSnackbarMessage] = useState<string>("")
-    //   const token = import.meta.env.REACT_APP_MY_SECRET_TOKEN;
 
 
     // Inspiration examples

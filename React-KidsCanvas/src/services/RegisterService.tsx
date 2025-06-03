@@ -1,10 +1,11 @@
 
+const base_url = import.meta.env.VITE_BASE_URL_API;
 
 export const Service = {
 
   checkUser: async (userName: string, password: string): Promise<boolean> => {
     try {
-      const res = await fetch('https://localhost:7001/api/Auth/check', {
+      const res = await fetch(`${base_url}/api/Auth/check`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ userName, password }),

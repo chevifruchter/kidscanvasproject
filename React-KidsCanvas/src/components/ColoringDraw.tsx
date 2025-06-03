@@ -28,9 +28,9 @@ export default function ColoringDraw() {
     const [isDrawing, setIsDrawing] = useState(false);
     const [history, setHistory] = useState<string[]>([]);
     const [redoStack, setRedoStack] = useState<string[]>([]);
-
+const base_url = import.meta.env.VITE_BASE_URL_API;
     useEffect(() => {
-        fetch('https://localhost:7001/api/Drawings')
+        fetch(`${base_url}/api/Drawings`)
             .then((res) => res.json())
             .then((data) => setDrawings(data));
     }, []);

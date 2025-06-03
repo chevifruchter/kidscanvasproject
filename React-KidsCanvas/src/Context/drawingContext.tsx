@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { Drawing } from "../models/Drawing";
-
+const base_url = import.meta.env.VITE_BASE_URL_API;
 interface DrawingsContextType {
   drawings: Drawing[];
   selectedDrawing: Drawing | null;
@@ -27,13 +27,13 @@ export const DrawingsProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
   const fetchDrawings = async () => {
     try {
-      const response = await fetch("https://localhost:7001/api/Drawings");
+      const response = await fetch(`${base_url}/api/Drawings`);
       if (!response.ok) {
         throw new Error("Failed to fetch drawings");
       }
       const data = await response.json();
       setDrawings(data);
-         const categoriesResponse = await fetch('https://localhost:7001/api/Category');
+         const categoriesResponse = await fetch(`${base_url}/api/Category`);
           if (!categoriesResponse.ok) {
             throw new Error('Failed to fetch categories');
           }
