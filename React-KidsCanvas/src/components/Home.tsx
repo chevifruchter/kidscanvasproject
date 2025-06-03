@@ -4,7 +4,6 @@ import {  useSearch } from "../Context/searchContext";
 import { Box, Button, Grid, IconButton, Paper, Tooltip, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useDrawings } from "../Context/drawingContext";
-import Footer from "./Footer";
 
 const Home = () => {
   const [drawings, setDrawing] = useState<Drawing[]>([]);
