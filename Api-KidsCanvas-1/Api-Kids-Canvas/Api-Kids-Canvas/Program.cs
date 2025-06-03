@@ -50,7 +50,6 @@ builder.Services.AddScoped<IUserService,UserService>();
 
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
-builder.Services.AddDbContext<DataContext>();
 
 builder.Services.AddAuthentication(options =>
 {
@@ -115,7 +114,7 @@ builder.Services.AddCors(options =>
     options.AddPolicy(name: MyAllowSpecificOrigins,
         policy =>
         {
-            policy.WithOrigins("https://kidscanvasproject-1.onrender.com", "https://kidscanvasproject-2.onrender.com") // הרשה ל-React
+            policy.WithOrigins("https://kidscanvasproject-1.onrender.com", "https://kidscanvasproject-2.onrender.com", "https://http://localhost:5173") // הרשה ל-React
                   .AllowAnyMethod() // GET, POST, PUT, DELETE...
                   .AllowAnyHeader(); // כותרות כמו Authorization, Content-Type...
         });
@@ -126,7 +125,9 @@ builder.Services.AddAutoMapper(typeof(MappinProfile));
 builder.Services.AddDbContext<DataContext>(options =>
 {
     var connectionString = builder.Configuration.GetConnectionString("DbConnectionString");
+    Console.WriteLine(connectionString);
     options.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+    Console.WriteLine("program connection string: "+connectionString);
 });
 
 

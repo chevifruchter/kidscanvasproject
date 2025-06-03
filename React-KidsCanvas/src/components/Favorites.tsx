@@ -335,6 +335,112 @@ export default function Favorites() {
           </Button>
         </DialogActions>
       </Dialog>
+        {/* Footer */}
+              <Paper
+                elevation={4}
+                sx={{
+                  mt: 4,
+                  p: 4,
+                  borderRadius: "25px",
+                  background: "linear-gradient(135deg, #333 0%, #555 100%)",
+                  color: "white",
+                }}
+              >
+                <Grid container spacing={4}>
+                  <Grid>
+                    <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold", color: "#ff69b4" }}>
+                      Kids Canvas
+                    </Typography>
+                    <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
+                      Creating magical stories from your imagination with the power of AI
+                    </Typography>
+                    <Box sx={{ display: "flex", gap: 1 }}>
+                      {["🎨", "📚", "✨"].map((emoji, i) => (
+                        <Box
+                          key={i}
+                          sx={{
+                            width: "40px",
+                            height: "40px",
+                            background: "rgba(255, 105, 180, 0.2)",
+                            borderRadius: "50%",
+                            display: "flex",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            fontSize: "1.2rem",
+                            cursor: "pointer",
+                            transition: "all 0.3s ease",
+                            "&:hover": {
+                              background: "rgba(255, 105, 180, 0.4)",
+                              transform: "scale(1.1)",
+                            },
+                          }}
+                        >
+                          {emoji}
+                        </Box>
+                      ))}
+                    </Box>
+                  </Grid>
+                  <Grid>
+      
+                    <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+                      Features
+                    </Typography>
+                    {["AI Story Generation", "Character Library", "Voice Narration", "Story Sharing"].map((item) => (
+                      <Typography key={item} variant="body2" sx={{ mb: 1, opacity: 0.8, cursor: "pointer" }}>
+                        {item}
+                      </Typography>
+                    ))}
+                  </Grid>
+                  <Grid>
+                    <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+                      Support
+                    </Typography>
+                    {["Help Center", "Contact Us", "Privacy Policy", "Terms of Service"].map((item) => (
+                      <Typography key={item} variant="body2" sx={{ mb: 1, opacity: 0.8, cursor: "pointer" }}>
+                        {item}
+                      </Typography>
+                    ))}
+                  </Grid>
+                  <Grid>
+                    <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+                      Stay Connected
+                    </Typography>
+                    <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
+                      Get updates on new features and stories
+                    </Typography>
+                    <Box sx={{ display: "flex", gap: 1 }}>
+                      <input
+                        type="email"
+                        placeholder="Enter your email"
+                        style={{
+                          flex: 1,
+                          padding: "8px 12px",
+                          borderRadius: "20px",
+                          border: "none",
+                          outline: "none",
+                        }}
+                      />
+                      <Button
+                        variant="contained"
+                        sx={{
+                          background: "#ff69b4",
+                          borderRadius: "20px",
+                          minWidth: "auto",
+                          px: 2,
+                          "&:hover": { background: "#ff1493" },
+                        }}
+                      >
+                        ✉️
+                      </Button>
+                    </Box>
+                  </Grid>
+                </Grid>
+                <Box sx={{ textAlign: "center", mt: 4, pt: 3, borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+                  <Typography variant="body2" sx={{ opacity: 0.6 }}>
+                    © 2024 Kids Canvas. All rights reserved. Made with ❤️ for creative minds.
+                  </Typography>
+                </Box>
+              </Paper>
     </Container>
   )
 }

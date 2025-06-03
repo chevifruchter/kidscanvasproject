@@ -17,6 +17,7 @@ namespace Kids_Canvas.Data.Repositories
 
         public Repository(DataContext context)
         {
+            Console.WriteLine("repository");
             _context = context;
             _dbSet = context.Set<T>() ?? throw new ArgumentNullException(nameof(_dbSet));
         }
