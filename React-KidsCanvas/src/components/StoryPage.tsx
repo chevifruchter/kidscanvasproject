@@ -20,7 +20,7 @@ import { useDrawings } from "../Context/drawingContext"
 import { Drawing } from "../models/Drawing"
 
 
-const StoryPage = () => {
+function StoryPage(){
   const availableDrawings = useDrawings().drawings
   const theme = useTheme()
   const [currentStory, setCurrentStory] = useState("")
@@ -28,7 +28,7 @@ const StoryPage = () => {
   const [isLoading, setIsLoading] = useState(false)
   const mainDrawing = useState(availableDrawings[0])
   const [storyVisible, setStoryVisible] = useState(false)
-
+  const base_url = import.meta.env.VITE_BASE_URL_API;
   // Mock AI story
   const mockStory = `Once upon a time, in a magical world filled with colors and wonder, there lived a cheerful little mouse named Minnie. She was known throughout the kingdom for her beautiful polka-dotted bow and her infectious smile that could brighten anyone's day.
 
@@ -43,22 +43,34 @@ When they finally reached the end of their quest, they discovered that the real 
 Minnie returned home with a heart full of love and friends for life. And from that day forward, whenever children see a rainbow in the sky, they remember Minnie's story and know that the greatest treasure of all is the magic of friendship and the joy we bring to others.`
 
   useEffect(() => {
-    // Simulate loading story from server
-    setIsLoading(true)
-    setTimeout(() => {
-      setCurrentStory(mockStory)
-      setIsLoading(false)
-      setTimeout(() => setStoryVisible(true), 500)
-    }, 2000)
+    const fetchStory = async () => {
+      try {
+        const response = await fetch(`${base_url}/api/DrawingStory/create-story`)
+        if (!response.ok) {
+          throw new Error("Failed to fetch drawing details")
+        }
+      }
+      catch (error) {
+        console.error("Error fetching story:", error)
+      }
+      // Simulate loading story from server
+      setIsLoading(true)
+      setTimeout(() => {
+        setCurrentStory(mockStory)
+        setIsLoading(false)
+        setTimeout(() => setStoryVisible(true), 500)
+      }, 2000)
+    }
+    fetchStory()
   }, [])
 
-  const handleDrawingSelect = (drawing:Drawing) => {
+  const handleDrawingSelect = (drawing: Drawing) => {
     if (!selectedDrawings.find((d) => d.id === drawing.id)) {
       setSelectedDrawings([...selectedDrawings, drawing])
     }
   }
 
-  const handleRemoveDrawing = (drawingId:string) => {
+  const handleRemoveDrawing = (drawingId: string) => {
     setSelectedDrawings(selectedDrawings.filter((d) => d.id !== drawingId))
   }
 
@@ -164,8 +176,8 @@ Minnie returned home with a heart full of love and friends for life. And from th
                 <CardMedia
                   component="img"
                   height="250"
-                //   image={mainDrawing.path}
-                //   alt={mainDrawing.name}
+                  //   image={mainDrawing.path}
+                  //   alt={mainDrawing.name}
                   sx={{ objectFit: "cover" }}
                 />
                 <Chip
@@ -209,7 +221,7 @@ Minnie returned home with a heart full of love and friends for life. And from th
                           <CardMedia
                             component="img"
                             height="100"
-                           src={drawing.path}
+                            src={drawing.path}
                             alt={drawing.name}
                             sx={{ borderRadius: "10px", objectFit: "cover" }}
                           />
@@ -442,7 +454,7 @@ Minnie returned home with a heart full of love and friends for life. And from th
                       textAlign: "center",
                     }}
                   >
-                    The Adventures of 
+                    The Adventures of
                     {/* {mainDrawing.name} */}
                   </Typography>
                   <Box
