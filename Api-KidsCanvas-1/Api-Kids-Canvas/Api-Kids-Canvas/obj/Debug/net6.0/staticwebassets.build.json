@@ -1,11 +1,37 @@
 {
   "Version": 1,
-  "Hash": "G7v1FiRi+7I5M/3pf7p9mM4xQYnqrHu2OgcsAqktGUg=",
+  "Hash": "t7LWpAKXzKrFRlJkVlrdbSGqjhHFHn8DU2rDS8f4Yvs=",
   "Source": "Api-Kids-Canvas",
   "BasePath": "_content/Api-Kids-Canvas",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
-  "DiscoveryPatterns": [],
-  "Assets": []
+  "DiscoveryPatterns": [
+    {
+      "Name": "Api-Kids-Canvas\\wwwroot",
+      "Source": "Api-Kids-Canvas",
+      "ContentRoot": "C:\\Development\\new\\FullstackProject\\Api-KidsCanvas-1\\Api-Kids-Canvas\\Api-Kids-Canvas\\wwwroot\\",
+      "BasePath": "_content/Api-Kids-Canvas",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Development\\new\\FullstackProject\\Api-KidsCanvas-1\\Api-Kids-Canvas\\Api-Kids-Canvas\\wwwroot\\media\\mandala.jpg",
+      "SourceId": "Api-Kids-Canvas",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Development\\new\\FullstackProject\\Api-KidsCanvas-1\\Api-Kids-Canvas\\Api-Kids-Canvas\\wwwroot\\",
+      "BasePath": "_content/Api-Kids-Canvas",
+      "RelativePath": "media/mandala.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\media\\mandala.jpg"
+    }
+  ]
 }

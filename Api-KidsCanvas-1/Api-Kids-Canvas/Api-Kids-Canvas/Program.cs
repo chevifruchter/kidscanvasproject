@@ -18,6 +18,7 @@ using FluentAssertions.Common;
 using Amazon.Runtime;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.FileProviders;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -132,6 +133,10 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 
 var app = builder.Build();
+
+// מאפשר גישה לקבצים מתוך wwwroot (ברירת מחדל)
+app.UseStaticFiles();
+
 
 app.UseCors(MyAllowSpecificOrigins);
 
