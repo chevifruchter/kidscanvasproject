@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useParams, useNavigate } from "react-router-dom"
+import { useParams, useNavigate, useLocation } from "react-router-dom"
 import {
   Button,
   Container,
@@ -25,8 +25,26 @@ import "../styles/OpenDrawing.css";
 import { Drawing } from "../models/Drawing"
 
 export default function OpenDrawing() {
-  const { id } = useParams();
-  console.log(`drawingcontext ${id}`);
+  const { id: paramId } = useParams();
+  const location = useLocation();
+
+  const [drawingId, setDrawingId] = useState<string | undefined>(undefined);
+
+  useEffect(() => {
+    // נבדוק קודם אם יש id בפרמטרים, ואם לא ניקח מ-state
+    if (paramId) {
+      setDrawingId(paramId);
+    } else if (location.state?.id) {
+      setDrawingId(location.state.id);
+    } else {
+      console.warn("לא התקבל ID מהנתיב ולא מה-state");
+    }
+  }, [paramId, location.state]);
+
+  // const location = useLocation();
+  // const id = location.state?.id;
+  // const { id } = useParams();
+  console.log(`drawingcontext ${drawingId}`);
 
   const navigate = useNavigate()
   const [drawing, setDrawing] = useState<Drawing | null>(null)
@@ -35,14 +53,14 @@ export default function OpenDrawing() {
 const base_url = import.meta.env.VITE_BASE_URL_API;
   useEffect(() => {
 
-    if (id)
-      console.log("Fetching drawing details for ID:", id);
+    if (drawingId)
+      console.log("Fetching drawing details for ID:", drawingId);
 
     const fetchDrawingDetails = async () => {
       try {
         setIsLoading(true)
         // Fetch the specific drawing
-        const response = await fetch(`${base_url}/api/Drawings${id}`)
+        const response = await fetch(`${base_url}/api/Drawings${drawingId}`)
         if (!response.ok) {
           throw new Error("Failed to fetch drawing details")
         }
@@ -58,7 +76,7 @@ const base_url = import.meta.env.VITE_BASE_URL_API;
         const relatedData = await relatedResponse.json()
 
         // Filter out the current drawing and get up to 6 related drawings
-        const filtered = relatedData.filter((d: Drawing) => d.id !== id).slice(0, 6)
+        const filtered = relatedData.filter((d: Drawing) => d.id !== drawingId).slice(0, 6)
 
         setRelatedDrawings(filtered)
       } catch (error) {
@@ -68,10 +86,10 @@ const base_url = import.meta.env.VITE_BASE_URL_API;
       }
     }
 
-    if (id) {
+    if (drawingId) {
       fetchDrawingDetails()
     }
-  }, [id])
+  }, [drawingId])
 
   const handleDownload = () => {
     if (!drawing) return

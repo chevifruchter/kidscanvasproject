@@ -4,7 +4,6 @@ import { useSearch } from "../Context/searchContext";
 import { Box, Button, Grid, IconButton, Paper, Tooltip, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useDrawings } from "../Context/drawingContext";
-import OpenDrawing from "./OpenDrawing";
 
 const Home = () => {
   const [drawings, setDrawing] = useState<Drawing[]>([]);
@@ -49,8 +48,8 @@ const Home = () => {
   }, [drawings, searchValue]);
 
   const opendrawing = (d:Drawing) => {
-    console.log("ציור שנבחר:", );
-    navigate("/open-drawing");
+    console.log("ציור שנבחר:", d);
+    navigate("/open-drawing", { state: { id: d.id } });
   };
   return (
     <div style={{ textAlign: "center", marginTop: "20px" }}>
