@@ -1,9 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { Drawing } from "../models/Drawing";
-import {  useSearch } from "../Context/searchContext";
+import { useSearch } from "../Context/searchContext";
 import { Box, Button, Grid, IconButton, Paper, Tooltip, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useDrawings } from "../Context/drawingContext";
+import OpenDrawing from "./OpenDrawing";
 
 const Home = () => {
   const [drawings, setDrawing] = useState<Drawing[]>([]);
@@ -12,7 +13,7 @@ const Home = () => {
   // const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const navigate = useNavigate();
   const setSelectedDrawing = useDrawings().setSelectedDrawing
-const base_url = import.meta.env.VITE_BASE_URL_API;
+  const base_url = import.meta.env.VITE_BASE_URL_API;
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -31,7 +32,7 @@ const base_url = import.meta.env.VITE_BASE_URL_API;
           }
           const categoriesData = await categoriesResponse.json();
           setCategories(categoriesData); // שמירת הקטגוריות ב-state
-          categories.map(()=>{})
+          categories.map(() => { })
         }
       } catch (error) {
         console.error('Error fetching data:', error);
@@ -47,10 +48,10 @@ const base_url = import.meta.env.VITE_BASE_URL_API;
     return drawings.filter(d => d.name.includes(searchValue));
   }, [drawings, searchValue]);
 
-  // const opendrawing = () => {
-  //   console.log("ציור שנבחר:", );
-  //   navigate("/open-drawing");
-  // };
+  const opendrawing = (d:Drawing) => {
+    console.log("ציור שנבחר:", );
+    navigate("/open-drawing");
+  };
   return (
     <div style={{ textAlign: "center", marginTop: "20px" }}>
       <div
@@ -76,7 +77,7 @@ const base_url = import.meta.env.VITE_BASE_URL_API;
                   console.log("ID לפני ניווט:", d.id);
                   navigate(`/open-drawing/${d.id}`);
                 }}>
-                  <img
+                  {/* <img
                     src={d.path}
                     alt="תמונה מ-S3"
                     style={{
@@ -86,136 +87,149 @@ const base_url = import.meta.env.VITE_BASE_URL_API;
                       borderRadius: "10px",
                       border: "1px solid black",
                     }}
-                  />
+                  /> */}
+                  <Box className="image-grid">
+                    {drawings.map((d, i) => (
+                      <Box key={i}>
+                        <img
+                          src={d.path}
+                          alt={d.name}
+                          onClick={() => opendrawing(d)}
+                          className="drawing-image"
+                        />
+                        <div className="image-label">{d.name}</div>
+                      </Box>
+                    ))}
+                  </Box>
                 </IconButton>
               </Tooltip>
-              <div
-        style={{
-          background: "#f0f4ff",
-          border: "1px solid #bbb",
-          borderTop: "none",
-          borderRadius: "0 0 10px 10px",
-          padding: "4px 0",
-          marginTop: "0px", // קרב את המלבן לתמונה
-          width: "248px",
-          fontWeight: "bold",
-          fontSize: "1.05em",
-          color: "#333",
-          boxShadow: "0 2px 6px #eee"
-        }}
-      >
+              {/* <div
+                style={{
+                  background: "#f0f4ff",
+                  border: "1px solid #bbb",
+                  borderTop: "none",
+                  borderRadius: "0 0 10px 10px",
+                  padding: "4px 0",
+                  marginTop: "0px",
+                  width: "248px",
+                  fontWeight: "bold",
+                  fontSize: "1.05em",
+                  color: "#333",
+                  boxShadow: "0 2px 6px #eee"
+                }}
+              >
                 {d.name}
-              </div>
+              </div> */}
             </div>
           );
         })}
       </div>
-       {/* Footer */}
-        <Paper
-          elevation={4}
-          sx={{
-            mt: 4,
-            p: 4,
-            borderRadius: "25px",
-            background: "linear-gradient(135deg, #333 0%, #555 100%)",
-            color: "white",
-          }}
-        >
-          <Grid container spacing={4}>
-            <Grid>
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold", color: "#ff69b4" }}>
-                Kids Canvas
-              </Typography>
-              <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
-                Creating magical stories from your imagination with the power of AI
-              </Typography>
-              <Box sx={{ display: "flex", gap: 1 }}>
-                {["🎨", "📚", "✨"].map((emoji, i) => (
-                  <Box
-                    key={i}
-                    sx={{
-                      width: "40px",
-                      height: "40px",
-                      background: "rgba(255, 105, 180, 0.2)",
-                      borderRadius: "50%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "1.2rem",
-                      cursor: "pointer",
-                      transition: "all 0.3s ease",
-                      "&:hover": {
-                        background: "rgba(255, 105, 180, 0.4)",
-                        transform: "scale(1.1)",
-                      },
-                    }}
-                  >
-                    {emoji}
-                  </Box>
-                ))}
-              </Box>
-            </Grid>
-            <Grid>
-
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-                Features
-              </Typography>
-              {["AI Story Generation", "Character Library", "Voice Narration", "Story Sharing"].map((item) => (
-                <Typography key={item} variant="body2" sx={{ mb: 1, opacity: 0.8, cursor: "pointer" }}>
-                  {item}
-                </Typography>
-              ))}
-            </Grid>
-            <Grid>
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-                Support
-              </Typography>
-              {["Help Center", "Contact Us", "Privacy Policy", "Terms of Service"].map((item) => (
-                <Typography key={item} variant="body2" sx={{ mb: 1, opacity: 0.8, cursor: "pointer" }}>
-                  {item}
-                </Typography>
-              ))}
-            </Grid>
-            <Grid>
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-                Stay Connected
-              </Typography>
-              <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
-                Get updates on new features and stories
-              </Typography>
-              <Box sx={{ display: "flex", gap: 1 }}>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  style={{
-                    flex: 1,
-                    padding: "8px 12px",
-                    borderRadius: "20px",
-                    border: "none",
-                    outline: "none",
-                  }}
-                />
-                <Button
-                  variant="contained"
+      {/* Footer */}
+      <Paper
+        elevation={4}
+        sx={{
+          mt: 4,
+          p: 4,
+          borderRadius: "25px",
+          background: "linear-gradient(135deg, #333 0%, #555 100%)",
+          color: "white",
+        }}
+      >
+        <Grid container spacing={4}>
+          <Grid>
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold", color: "#ff69b4" }}>
+              Kids Canvas
+            </Typography>
+            <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
+              Creating magical stories from your imagination with the power of AI
+            </Typography>
+            <Box sx={{ display: "flex", gap: 1 }}>
+              {["🎨", "📚", "✨"].map((emoji, i) => (
+                <Box
+                  key={i}
                   sx={{
-                    background: "#ff69b4",
-                    borderRadius: "20px",
-                    minWidth: "auto",
-                    px: 2,
-                    "&:hover": { background: "#ff1493" },
+                    width: "40px",
+                    height: "40px",
+                    background: "rgba(255, 105, 180, 0.2)",
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "1.2rem",
+                    cursor: "pointer",
+                    transition: "all 0.3s ease",
+                    "&:hover": {
+                      background: "rgba(255, 105, 180, 0.4)",
+                      transform: "scale(1.1)",
+                    },
                   }}
                 >
-                  ✉️
-                </Button>
-              </Box>
-            </Grid>
+                  {emoji}
+                </Box>
+              ))}
+            </Box>
           </Grid>
-          <Box sx={{ textAlign: "center", mt: 4, pt: 3, borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-            <Typography variant="body2" sx={{ opacity: 0.6 }}>
-              © 2024 Kids Canvas. All rights reserved. Made with ❤️ for creative minds.
+          <Grid>
+
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+              Features
             </Typography>
-          </Box>
-        </Paper>
+            {["AI Story Generation", "Character Library", "Voice Narration", "Story Sharing"].map((item) => (
+              <Typography key={item} variant="body2" sx={{ mb: 1, opacity: 0.8, cursor: "pointer" }}>
+                {item}
+              </Typography>
+            ))}
+          </Grid>
+          <Grid>
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+              Support
+            </Typography>
+            {["Help Center", "Contact Us", "Privacy Policy", "Terms of Service"].map((item) => (
+              <Typography key={item} variant="body2" sx={{ mb: 1, opacity: 0.8, cursor: "pointer" }}>
+                {item}
+              </Typography>
+            ))}
+          </Grid>
+          <Grid>
+            <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+              Stay Connected
+            </Typography>
+            <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
+              Get updates on new features and stories
+            </Typography>
+            <Box sx={{ display: "flex", gap: 1 }}>
+              <input
+                type="email"
+                placeholder="Enter your email"
+                style={{
+                  flex: 1,
+                  padding: "8px 12px",
+                  borderRadius: "20px",
+                  border: "none",
+                  outline: "none",
+                }}
+              />
+              <Button
+                variant="contained"
+                sx={{
+                  background: "#ff69b4",
+                  borderRadius: "20px",
+                  minWidth: "auto",
+                  px: 2,
+                  "&:hover": { background: "#ff1493" },
+                }}
+              >
+                ✉️
+              </Button>
+            </Box>
+          </Grid>
+        </Grid>
+        <Box sx={{ textAlign: "center", mt: 4, pt: 3, borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+          <Typography variant="body2" sx={{ opacity: 0.6 }}>
+            © 2024 Kids Canvas. All rights reserved. Made with ❤️ for creative minds.
+          </Typography>
+        </Box>
+      </Paper>
     </div>
   );
 
