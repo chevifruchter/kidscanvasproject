@@ -1,829 +1,669 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import type React from "react"
+import { useState } from "react"
 import {
   Box,
   Container,
   Typography,
+  TextField,
   Button,
+  Chip,
   Grid,
+  Paper,
   Card,
   CardMedia,
   CardContent,
-  Chip,
   IconButton,
-  Paper,
-  useTheme,
+  CircularProgress,
+  Fade,
+  Divider,
 } from "@mui/material"
-import { AutoAwesome, Favorite, Share, Download, Add, Close, VolumeUp } from "@mui/icons-material"
-import { useDrawings } from "../Context/drawingContext"
-import { Drawing } from "../models/Drawing"
+import { ThemeProvider, createTheme } from "@mui/material/styles"
+import CssBaseline from "@mui/material/CssBaseline"
+import {
+  AutoAwesome,
+  Image as ImageIcon,
+  Refresh,
+  ContentCopy,
+  Download,
+  Collections,
+  AutoStories,
+  
+} from "@mui/icons-material"
+import "../styles/storyPage.css"
+// Create a theme with clean, subtle colors matching the reference design
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#e91e63", // Pink from the header gradient
+      light: "#f48fb1",
+      dark: "#c2185b",
+    },
+    secondary: {
+      main: "#2196f3", // Blue from the bottom section
+      light: "#64b5f6",
+      dark: "#1976d2",
+    },
+    background: {
+      default: "#f8f9fa",
+      paper: "#ffffff",
+    },
+  },
+  typography: {
+    fontFamily: '"Poppins", "Roboto", "Helvetica", "Arial", sans-serif',
+    h4: {
+      fontWeight: 600,
+    },
+    h5: {
+      fontWeight: 600,
+    },
+  },
+  shape: {
+    borderRadius: 12,
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: "none",
+          borderRadius: 30,
+          padding: "10px 20px",
+        },
+      },
+    },
+    MuiChip: {
+      styleOverrides: {
+        root: {
+          borderRadius: 16,
+          padding: "0 8px",
+        },
+      },
+    },
+  },
+})
 
+// Sample gallery images - in a real app, these would come from your database
+const galleryImages = [
+  {
+    id: 1,
+    url: "/placeholder.svg?height=200&width=300",
+    title: "Abstract Landscape",
+    artist: "Emma Johnson",
+  },
+  {
+    id: 2,
+    url: "/placeholder.svg?height=200&width=300",
+    title: "Sunset Dreams",
+    artist: "Michael Chen",
+  },
+  {
+    id: 3,
+    url: "/placeholder.svg?height=200&width=300",
+    title: "Urban Reflections",
+    artist: "Sofia Rodriguez",
+  },
+  {
+    id: 4,
+    url: "/placeholder.svg?height=200&width=300",
+    title: "Mystical Forest",
+    artist: "James Wilson",
+  },
+  {
+    id: 5,
+    url: "/placeholder.svg?height=200&width=300",
+    title: "Ocean Whispers",
+    artist: "Aisha Patel",
+  },
+  {
+    id: 6,
+    url: "/placeholder.svg?height=200&width=300",
+    title: "Geometric Dreams",
+    artist: "Lucas Thompson",
+  },
+]
 
-function StoryPage(){
-  const availableDrawings = useDrawings().drawings
-  const theme = useTheme()
-  const [currentStory, setCurrentStory] = useState("")
-  const [selectedDrawings, setSelectedDrawings] = useState<Drawing[]>([])
-  const [isLoading, setIsLoading] = useState(false)
-  const mainDrawing = useState(availableDrawings[0])
-  const [storyVisible, setStoryVisible] = useState(false)
-  const base_url = import.meta.env.VITE_BASE_URL_API;
-  // Mock AI story
-  const mockStory = `Once upon a time, in a magical world filled with colors and wonder, there lived a cheerful little mouse named Minnie. She was known throughout the kingdom for her beautiful polka-dotted bow and her infectious smile that could brighten anyone's day.
+// Story style suggestions
+const storyStyleSuggestions = [
+  "Fairy tale adventure",
+  "Mysterious detective story",
+  "Heartwarming friendship tale",
+  "Epic fantasy journey",
+  "Funny animal adventure",
+  "Magical realism story",
+]
 
-One sunny morning, Minnie decided to embark on the greatest adventure of her life. She had heard whispers of the legendary Rainbow Treasure - a mystical collection of the most beautiful colors in the entire universe, hidden somewhere beyond the Cloudy Mountains.
+export default function AIStoryGenerator() {
+  const [selectedImage, setSelectedImage] = useState<File | null>(null)
+  const [imagePreview, setImagePreview] = useState<string>("")
+  const [prompt, setPrompt] = useState("")
+  const [generatedStory, setGeneratedStory] = useState("")
+  const [isGenerating, setIsGenerating] = useState(false)
+  const [showGallery, setShowGallery] = useState(false)
+  const [selectedGalleryImage, setSelectedGalleryImage] = useState<number | null>(null)
 
-As Minnie set off on her journey, she encountered wonderful friends along the way: a brave rabbit who loved to soar through the clouds in his tiny airplane, a wise baby elephant who knew all the secret paths through the enchanted forest, and a gentle bunny who lived in a magical wicker basket that could transport them anywhere they wished to go.
-
-Together, this delightful group of friends traveled through sparkling meadows, crossed shimmering rivers, and climbed the highest peaks. Wherever they went, they spread joy and laughter, making the world a more beautiful and colorful place.
-
-When they finally reached the end of their quest, they discovered that the real Rainbow Treasure wasn't gold or jewels - it was the friendship they had built together and the happiness they had shared with everyone they met along the way.
-
-Minnie returned home with a heart full of love and friends for life. And from that day forward, whenever children see a rainbow in the sky, they remember Minnie's story and know that the greatest treasure of all is the magic of friendship and the joy we bring to others.`
-
-  useEffect(() => {
-    const fetchStory = async () => {
-      try {
-        const response = await fetch(`${base_url}/api/DrawingStory/create-story`)
-        if (!response.ok) {
-          throw new Error("Failed to fetch drawing details")
-        }
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0]
+    if (file) {
+      setSelectedImage(file)
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        setImagePreview(e.target?.result as string)
       }
-      catch (error) {
-        console.error("Error fetching story:", error)
-      }
-      // Simulate loading story from server
-      setIsLoading(true)
+      reader.readAsDataURL(file)
+      setSelectedGalleryImage(null)
+    }
+  }
+
+  const selectGalleryImage = (id: number) => {
+    setSelectedGalleryImage(id)
+    const image = galleryImages.find((img) => img.id === id)
+    if (image) {
+      setImagePreview(image.url)
+      setSelectedImage(null)
+    }
+    setShowGallery(false)
+  }
+  const generateStory = async () => {
+   const token = import.meta.env.VITE_MY_TOKEN;
+
+    if ((!selectedImage && !selectedGalleryImage) || !prompt) return
+
+    setIsGenerating(true)
+
+    try {
+       const response = await fetch(
+                "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
+                {
+                    method: "POST",
+                    headers: {
+                        Authorization: "Bearer " + token,
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ inputs: prompt }),
+                },
+            )
+      // const { text } = await generateText({
+      //   model: openai("gpt-4-vision-preview"),
+      //   messages: [
+      //     {
+      //       role: "user",
+      //       content: [
+      //         { type: "text", text: `Create a story in hebrow about this artwork: ${prompt}` },
+      //         { 
+      //           type: "image", 
+      //           image: selectedImage 
+      //             ? await selectedImage.arrayBuffer() 
+      //             : new URL(imagePreview)
+      //         }
+      //       ]
+      //     }
+      //   ]
+      // });
+      // setGeneratedStory(text);
+    
+
+      // Simulation for demo purposes
       setTimeout(() => {
-        setCurrentStory(mockStory)
-        setIsLoading(false)
-        setTimeout(() => setStoryVisible(true), 500)
+        const imageSource = selectedGalleryImage
+          ? galleryImages.find((img) => img.id === selectedGalleryImage)?.title
+          : "the uploaded artwork"
+
+        const sampleStory = `
+Once upon a time, in a world where colors spoke and shapes danced, there existed ${imageSource} - a masterpiece that held secrets beyond imagination.
+
+${prompt}
+
+The artwork seemed to breathe with life, each brushstroke telling a story of its own. Viewers would stand mesmerized, feeling as though they could step right into the scene and become part of its narrative.
+
+Some said that on quiet nights, when the gallery was empty and moonlight streamed through the windows, the characters in the painting would move, continuing their adventures beyond what the artist had originally created.
+
+What made this piece truly special wasn't just its technical brilliance, but the emotions it evoked - a sense of wonder, nostalgia, and the feeling that magic exists all around us, if only we take the time to notice.
+
+And so, the legacy of this artwork continued, inspiring generations of dreamers and storytellers to see the world not just as it is, but as it could be.`
+
+        setGeneratedStory(sampleStory)
+        setIsGenerating(false)
       }, 2000)
-    }
-    fetchStory()
-  }, [])
-
-  const handleDrawingSelect = (drawing: Drawing) => {
-    if (!selectedDrawings.find((d) => d.id === drawing.id)) {
-      setSelectedDrawings([...selectedDrawings, drawing])
+    } catch (error) {
+      console.error("Error generating story:", error)
+      setIsGenerating(false)
     }
   }
 
-  const handleRemoveDrawing = (drawingId: string) => {
-    setSelectedDrawings(selectedDrawings.filter((d) => d.id !== drawingId))
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(generatedStory)
   }
 
-  const handleGenerateNewStory = async () => {
-    setIsLoading(true)
-    setStoryVisible(false)
-    // Here you would send the selected drawings to your AI server
-    console.log("Sending to AI:", [mainDrawing, ...selectedDrawings])
+  const downloadStory = () => {
+    const element = document.createElement("a")
+    const file = new Blob([generatedStory], { type: "text/plain" })
+    element.href = URL.createObjectURL(file)
+    element.download = "AI_Generated_Story.txt"
+    document.body.appendChild(element)
+    element.click()
+    document.body.removeChild(element)
+  }
 
-    setTimeout(() => {
-      setCurrentStory(mockStory + "\n\nThe story has been updated with your newly selected drawings!")
-      setIsLoading(false)
-      setTimeout(() => setStoryVisible(true), 500)
-    }, 3000)
+  const addSuggestionToPrompt = (suggestion: string) => {
+    setPrompt((prev) => (prev ? `${prev}, ${suggestion}` : suggestion))
   }
 
   return (
-    <Box sx={{ minHeight: "100vh", background: "linear-gradient(135deg, #ffeef8 0%, #f0f8ff 50%, #fff5ee 100%)" }}>
-      {/* Floating Animation Elements */}
-      <Box sx={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, pointerEvents: "none", zIndex: 0 }}>
-        {[...Array(6)].map((_, i) => (
-          <Box
-            key={i}
-            sx={{
-              position: "absolute",
-              width: "20px",
-              height: "20px",
-              background: ["#ff69b4", "#87ceeb", "#ffd700", "#98fb98", "#dda0dd", "#ffa500"][i],
-              borderRadius: "50%",
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animation: `float ${3 + Math.random() * 4}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 2}s`,
-              opacity: 0.6,
-            }}
-          />
-        ))}
-      </Box>
-
-      <Container maxWidth="lg" sx={{ position: "relative", zIndex: 1, py: 4 }}>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Box sx={{ minHeight: "100vh", bgcolor: "background.default" }}>
         {/* Header Section */}
-        <Paper
-          elevation={8}
+        <Box
           sx={{
-            p: 4,
-            mb: 4,
-            borderRadius: "25px",
-            background: "linear-gradient(135deg, #ff69b4 0%, #ff1493 100%)",
-            color: "white",
+            background: "linear-gradient(45deg, #e91e63 30%, #9c27b0 90%)",
+            py: 4,
+            px: 2,
             textAlign: "center",
-            position: "relative",
-            overflow: "hidden",
+            color: "white",
+            borderRadius: { xs: "0 0 24px 24px", md: "0 0 48px 48px" },
+            mb: 4,
           }}
         >
-          <Box
-            sx={{
-              position: "absolute",
-              top: 0,
-              left: 0,
-              right: 0,
-              bottom: 0,
-              background:
-                'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fillRule="evenodd"%3E%3Cg fill="%23ffffff" fillOpacity="0.1"%3E%3Ccircle cx="30" cy="30" r="4"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")',
-              animation: "slide 20s linear infinite",
-            }}
-          />
-          <Typography
-            variant="h2"
-            sx={{
-              fontWeight: "bold",
-              mb: 2,
-              position: "relative",
-              zIndex: 1,
-              textShadow: "2px 2px 4px rgba(0,0,0,0.3)",
-            }}
-          >
-            ✨ Your Magical Story ✨
-          </Typography>
-          <Typography variant="h6" sx={{ position: "relative", zIndex: 1, opacity: 0.9 }}>
-            A unique tale created just for you by artificial intelligence
-          </Typography>
-        </Paper>
+          <Container maxWidth="md">
+            <Typography variant="h4" component="h1" gutterBottom>
+              AI Story Creator
+            </Typography>
+            <Typography variant="subtitle1">Transform artwork into captivating stories with AI</Typography>
+          </Container>
+        </Box>
 
-        <Grid container spacing={4}>
-          {/* Left Column - Main Drawing & Selected Drawings */}
-          <Grid>
-            {/* Main Drawing */}
-            <Card
-              elevation={6}
-              sx={{
-                mb: 3,
-                borderRadius: "20px",
-                overflow: "hidden",
-                border: "3px solid #87ceeb",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  transform: "translateY(-5px)",
-                  boxShadow: theme.shadows[12],
-                },
-              }}
-            >
-              <Box sx={{ position: "relative" }}>
-                <CardMedia
-                  component="img"
-                  height="250"
-                  //   image={mainDrawing.path}
-                  //   alt={mainDrawing.name}
-                  sx={{ objectFit: "cover" }}
-                />
-                <Chip
-                  label="Main Character"
-                  sx={{
-                    position: "absolute",
-                    top: 10,
-                    right: 10,
-                    background: "linear-gradient(45deg, #ff69b4, #ff1493)",
-                    color: "white",
-                    fontWeight: "bold",
-                  }}
-                />
-              </Box>
-              <CardContent sx={{ textAlign: "center", py: 2 }}>
-                <Typography variant="h6" sx={{ fontWeight: "bold", color: "#333" }}>
-                  {/* {mainDrawing.name} */}
-                </Typography>
-              </CardContent>
-            </Card>
-
-            {/* Selected Additional Drawings */}
-            {selectedDrawings.length > 0 && (
-              <Card
-                elevation={4}
+        <Container maxWidth="lg">
+          <Grid container spacing={4}>
+            {/* Left Column - CSS & Styling */}
+            <Grid >
+              <Paper
+                elevation={0}
                 sx={{
-                  mb: 3,
-                  borderRadius: "20px",
-                  border: "3px solid #98fb98",
-                  overflow: "hidden",
-                }}
-              >
-                <CardContent>
-                  <Typography variant="h6" sx={{ mb: 2, color: "#2e7d32", fontWeight: "bold", textAlign: "center" }}>
-                    Story Characters
-                  </Typography>
-                  <Grid container spacing={2}>
-                    {selectedDrawings.map((drawing) => (
-                      <Grid key={drawing.id}>
-                        <Box sx={{ position: "relative" }}>
-                          <CardMedia
-                            component="img"
-                            height="100"
-                            src={drawing.path}
-                            alt={drawing.name}
-                            sx={{ borderRadius: "10px", objectFit: "cover" }}
-                          />
-                          <IconButton
-                            size="small"
-                            onClick={() => handleRemoveDrawing(drawing.id)}
-                            sx={{
-                              position: "absolute",
-                              top: -5,
-                              right: -5,
-                              background: "#ff4444",
-                              color: "white",
-                              "&:hover": { background: "#cc0000" },
-                            }}
-                          >
-                            <Close fontSize="small" />
-                          </IconButton>
-                          <Typography
-                            variant="caption"
-                            sx={{
-                              display: "block",
-                              textAlign: "center",
-                              mt: 1,
-                              fontWeight: "bold",
-                              color: "#333",
-                            }}
-                          >
-                            {drawing.name}
-                          </Typography>
-                        </Box>
-                      </Grid>
-                    ))}
-                  </Grid>
-                </CardContent>
-              </Card>
-            )}
-
-            {/* Available Drawings */}
-            <Card
-              elevation={4}
-              sx={{
-                borderRadius: "20px",
-                border: "3px solid #ffd700",
-                overflow: "hidden",
-              }}
-            >
-              <CardContent>
-                <Typography variant="h6" sx={{ mb: 2, color: "#f57c00", fontWeight: "bold", textAlign: "center" }}>
-                  Add More Characters
-                </Typography>
-                <Grid container spacing={1}>
-                  {availableDrawings
-                    // .filter(
-                    //   // (drawing) => drawing.id !== mainDrawing && !selectedDrawings.find((d) => d.id === drawing.id),
-                    // )
-                    .slice(0, 6)
-                    .map((drawing) => (
-                      <Grid key={drawing.id}>
-                        <Box
-                          onClick={() => handleDrawingSelect(drawing)}
-                          sx={{
-                            position: "relative",
-                            cursor: "pointer",
-                            borderRadius: "10px",
-                            overflow: "hidden",
-                            transition: "all 0.3s ease",
-                            "&:hover": {
-                              transform: "scale(1.05)",
-                              "& .add-overlay": { opacity: 1 },
-                            },
-                          }}
-                        >
-                          <CardMedia
-                            component="img"
-                            height="80"
-                            src={drawing.path}
-                            alt={drawing.name}
-                            sx={{ objectFit: "cover" }}
-                          />
-                          <Box
-                            className="add-overlay"
-                            sx={{
-                              position: "absolute",
-                              top: 0,
-                              left: 0,
-                              right: 0,
-                              bottom: 0,
-                              background: "rgba(255, 105, 180, 0.8)",
-                              display: "flex",
-                              alignItems: "center",
-                              justifyContent: "center",
-                              opacity: 0,
-                              transition: "opacity 0.3s ease",
-                            }}
-                          >
-                            <Add sx={{ color: "white", fontSize: "2rem" }} />
-                          </Box>
-                        </Box>
-                      </Grid>
-                    ))}
-                </Grid>
-              </CardContent>
-            </Card>
-          </Grid>
-
-          {/* Right Column - Story Display */}
-          <Grid>
-            {isLoading ? (
-              <Card
-                elevation={6}
-                sx={{
-                  height: "600px",
-                  borderRadius: "25px",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  background: "linear-gradient(135deg, #ffd700 0%, #ffa500 100%)",
-                  color: "white",
-                  textAlign: "center",
+                  p: 3,
+                  borderRadius: 4,
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
+                  height: "100%",
                   position: "relative",
                   overflow: "hidden",
                 }}
               >
                 <Box
                   sx={{
-                    width: "80px",
-                    height: "80px",
-                    border: "4px solid rgba(255,255,255,0.3)",
-                    borderTop: "4px solid white",
-                    borderRadius: "50%",
-                    animation: "spin 1s linear infinite",
-                    mb: 3,
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "5px",
+                    background: "linear-gradient(90deg, #e91e63, #9c27b0)",
                   }}
                 />
-                <Typography variant="h4" sx={{ mb: 2, fontWeight: "bold" }}>
-                  Creating Your Magical Story...
+
+                <Typography variant="h5" sx={{ mb: 3, display: "flex", alignItems: "center", gap: 1 }}>
+                  <AutoAwesome color="primary" /> Create Your Story
                 </Typography>
-                <Typography variant="h6" sx={{ mb: 3, opacity: 0.9 }}>
-                  Our AI is weaving a wonderful tale just for you!
-                </Typography>
-                <Box sx={{ display: "flex", gap: 1 }}>
-                  {[0, 1, 2].map((i) => (
-                    <Box
-                      key={i}
-                      sx={{
-                        width: "12px",
-                        height: "12px",
-                        background: "white",
-                        borderRadius: "50%",
-                        animation: "bounce 1.4s infinite ease-in-out",
-                        animationDelay: `${i * 0.16}s`,
-                      }}
-                    />
-                  ))}
-                </Box>
-              </Card>
-            ) : (
-              <Card
-                elevation={6}
-                sx={{
-                  borderRadius: "25px",
-                  overflow: "hidden",
-                  border: "3px solid #98fb98",
-                  opacity: storyVisible ? 1 : 0,
-                  transform: storyVisible ? "translateY(0)" : "translateY(20px)",
-                  transition: "all 0.8s ease",
-                }}
-              >
-                {/* Story Header */}
-                <Box
-                  sx={{
-                    background: "linear-gradient(135deg, #98fb98 0%, #90ee90 100%)",
-                    p: 3,
-                    color: "#2e7d32",
-                    textAlign: "center",
-                  }}
-                >
-                  <Typography variant="h4" sx={{ fontWeight: "bold", mb: 1 }}>
-                    📖 Your Story
+
+                {/* Image Selection */}
+                <Box sx={{ mb: 4 }}>
+                  <Typography variant="subtitle1" gutterBottom>
+                    Select Artwork
                   </Typography>
-                  <Box sx={{ display: "flex", justifyContent: "center", gap: 1, flexWrap: "wrap" }}>
+
+                  <Box sx={{ display: "flex", gap: 2, mb: 2 }}>
                     <Button
-                      size="small"
-                      startIcon={<VolumeUp />}
+                      variant="outlined"
+                      component="label"
+                      startIcon={<ImageIcon />}
                       sx={{
-                        background: "rgba(255,255,255,0.2)",
-                        color: "#2e7d32",
-                        borderRadius: "20px",
-                        "&:hover": { background: "rgba(255,255,255,0.3)" },
+                        borderColor: "primary.light",
+                        color: "primary.main",
+                        "&:hover": {
+                          borderColor: "primary.main",
+                          bgcolor: "rgba(233, 30, 99, 0.04)",
+                        },
                       }}
                     >
-                      Listen
+                      Upload Image
+                      <input type="file" hidden accept="image/*" onChange={handleImageUpload} />
                     </Button>
+
                     <Button
-                      size="small"
-                      startIcon={<Download />}
+                      variant="outlined"
+                      startIcon={<Collections />}
+                      onClick={() => setShowGallery(!showGallery)}
                       sx={{
-                        background: "rgba(255,255,255,0.2)",
-                        color: "#2e7d32",
-                        borderRadius: "20px",
-                        "&:hover": { background: "rgba(255,255,255,0.3)" },
+                        borderColor: "secondary.light",
+                        color: "secondary.main",
+                        "&:hover": {
+                          borderColor: "secondary.main",
+                          bgcolor: "rgba(33, 150, 243, 0.04)",
+                        },
                       }}
                     >
-                      Download
+                      Gallery
                     </Button>
-                    <Button
-                      size="small"
-                      startIcon={<Share />}
-                      sx={{
-                        background: "rgba(255,255,255,0.2)",
-                        color: "#2e7d32",
-                        borderRadius: "20px",
-                        "&:hover": { background: "rgba(255,255,255,0.3)" },
-                      }}
-                    >
-                      Share
-                    </Button>
+                  </Box>
+
+                  {/* Image Preview */}
+                  {imagePreview && (
+                    <Fade in={!!imagePreview}>
+                      <Box
+                        sx={{
+                          mt: 2,
+                          p: 1,
+                          border: "1px solid #e0e0e0",
+                          borderRadius: 2,
+                          position: "relative",
+                          overflow: "hidden",
+                        }}
+                      >
+                        <img
+                          src={imagePreview || "/placeholder.svg"}
+                          alt="Selected artwork"
+                          style={{
+                            width: "100%",
+                            height: "auto",
+                            maxHeight: "250px",
+                            objectFit: "contain",
+                            borderRadius: "8px",
+                          }}
+                        />
+                        {selectedGalleryImage && (
+                          <Typography
+                            variant="caption"
+                            sx={{
+                              position: "absolute",
+                              bottom: 0,
+                              left: 0,
+                              right: 0,
+                              bgcolor: "rgba(0,0,0,0.6)",
+                              color: "white",
+                              p: 1,
+                            }}
+                          >
+                            {galleryImages.find((img) => img.id === selectedGalleryImage)?.title} by{" "}
+                            {galleryImages.find((img) => img.id === selectedGalleryImage)?.artist}
+                          </Typography>
+                        )}
+                      </Box>
+                    </Fade>
+                  )}
+
+                  {/* Gallery */}
+                  {showGallery && (
+                    <Fade in={showGallery}>
+                      <Box
+                        sx={{
+                          mt: 2,
+                          p: 2,
+                          border: "1px solid #e0e0e0",
+                          borderRadius: 2,
+                          maxHeight: "400px",
+                          overflowY: "auto",
+                        }}
+                      >
+                        <Typography variant="subtitle2" gutterBottom>
+                          Select from Gallery
+                        </Typography>
+                        <Grid container spacing={2}>
+                          {galleryImages.map((image) => (
+                            <Grid  key={image.id}>
+                              <Card
+                                sx={{
+                                  cursor: "pointer",
+                                  transition: "transform 0.2s",
+                                  "&:hover": {
+                                    transform: "scale(1.03)",
+                                  },
+                                  border: selectedGalleryImage === image.id ? "2px solid #e91e63" : "none",
+                                }}
+                                onClick={() => selectGalleryImage(image.id)}
+                              >
+                                <CardMedia component="img" height="120" image={image.url} alt={image.title} />
+                                <CardContent sx={{ p: 1 }}>
+                                  <Typography variant="caption" noWrap>
+                                    {image.title}
+                                  </Typography>
+                                </CardContent>
+                              </Card>
+                            </Grid>
+                          ))}
+                        </Grid>
+                      </Box>
+                    </Fade>
+                  )}
+                </Box>
+
+                {/* Story Description */}
+                <Box sx={{ mb: 4 }}>
+                  <Typography variant="subtitle1" gutterBottom>
+                    Describe the story you want
+                  </Typography>
+                  <TextField
+                    fullWidth
+                    multiline
+                    rows={4}
+                    placeholder="Describe what kind of story you want about this artwork..."
+                    value={prompt}
+                    onChange={(e) => setPrompt(e.target.value)}
+                    sx={{
+                      "& .MuiOutlinedInput-root": {
+                        borderRadius: 2,
+                        "&:hover fieldset": {
+                          borderColor: "primary.light",
+                        },
+                        "&.Mui-focused fieldset": {
+                          borderColor: "primary.main",
+                        },
+                      },
+                    }}
+                  />
+                </Box>
+
+                {/* Suggestions */}
+                <Box sx={{ mb: 4 }}>
+                  <Typography variant="subtitle2" gutterBottom>
+                    Need inspiration? Try these:
+                  </Typography>
+                  <Box sx={{ display: "flex", flexWrap: "wrap", gap: 1 }}>
+                    {storyStyleSuggestions.map((suggestion, index) => (
+                      <Chip
+                        key={index}
+                        label={suggestion}
+                        onClick={() => addSuggestionToPrompt(suggestion)}
+                        sx={{
+                          bgcolor: "rgba(233, 30, 99, 0.08)",
+                          color: "primary.dark",
+                          "&:hover": {
+                            bgcolor: "rgba(233, 30, 99, 0.15)",
+                          },
+                          mb: 1,
+                        }}
+                      />
+                    ))}
                   </Box>
                 </Box>
 
-                {/* Story Content */}
-                <CardContent sx={{ p: 4 }}>
-                  <Typography
-                    variant="h5"
+                {/* Generate Button */}
+                <Button
+                  variant="contained"
+                  size="large"
+                  fullWidth
+                  onClick={generateStory}
+                  disabled={isGenerating || !imagePreview || !prompt}
+                  startIcon={isGenerating ? <CircularProgress size={20} color="inherit" /> :<></>}
+                  sx={{
+                    background: "linear-gradient(45deg, #e91e63 30%, #9c27b0 90%)",
+                    color: "white",
+                    py: 1.5,
+                    boxShadow: "0 4px 20px rgba(233, 30, 99, 0.3)",
+                    "&:hover": {
+                      boxShadow: "0 6px 25px rgba(233, 30, 99, 0.4)",
+                    },
+                    "&.Mui-disabled": {
+                      background: "#e0e0e0",
+                    },
+                  }}
+                >
+                  {isGenerating ? "Creating Story..." : "Generate Story"}
+                </Button>
+              </Paper>
+            </Grid>
+
+            {/* Right Column - Logic & Output */}
+            <Grid>
+              <Paper
+                elevation={0}
+                sx={{
+                  p: 3,
+                  borderRadius: 4,
+                  boxShadow: "0 4px 20px rgba(0,0,0,0.05)",
+                  height: "100%",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+              >
+                <Box
+                  sx={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "5px",
+                    background: "linear-gradient(90deg, #2196f3, #03a9f4)",
+                  }}
+                />
+
+                <Typography variant="h5" sx={{ mb: 3, display: "flex", alignItems: "center", gap: 1 }}>
+                  <AutoStories color="secondary" /> Your Story
+                </Typography>
+
+                {isGenerating ? (
+                  <Box sx={{ display: "flex", flexDirection: "column", alignItems: "center", py: 8 }}>
+                    <CircularProgress color="secondary" />
+                    <Typography variant="body1" color="text.secondary" sx={{ mt: 2 }}>
+                      Creating your story...
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ mt: 1 }}>
+                      Our AI is analyzing the artwork and crafting a unique narrative
+                    </Typography>
+                  </Box>
+                ) : generatedStory ? (
+                  <Box>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        justifyContent: "flex-end",
+                        gap: 1,
+                        mb: 2,
+                      }}
+                    >
+                      <IconButton size="small" onClick={copyToClipboard} title="Copy to clipboard">
+                        <ContentCopy fontSize="small" />
+                      </IconButton>
+                      <IconButton size="small" onClick={downloadStory} title="Download story">
+                        <Download fontSize="small" />
+                      </IconButton>
+                      <IconButton size="small" onClick={generateStory} disabled={isGenerating} title="Regenerate story">
+                        <Refresh fontSize="small" />
+                      </IconButton>
+                    </Box>
+                    <Divider sx={{ mb: 2 }} />
+                    <Box
+                      sx={{
+                        p: 2,
+                        borderRadius: 2,
+                        bgcolor: "rgba(33, 150, 243, 0.04)",
+                        border: "1px solid rgba(33, 150, 243, 0.1)",
+                        maxHeight: "500px",
+                        overflowY: "auto",
+                      }}
+                    >
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          lineHeight: 1.8,
+                          whiteSpace: "pre-line",
+                        }}
+                      >
+                        {generatedStory}
+                      </Typography>
+                    </Box>
+                  </Box>
+                ) : (
+                  <Box
                     sx={{
-                      mb: 3,
-                      color: "#ff1493",
-                      fontWeight: "bold",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      py: 8,
+                      px: 2,
                       textAlign: "center",
                     }}
                   >
-                    The Adventures of
-                    {/* {mainDrawing.name} */}
-                  </Typography>
-                  <Box
-                    sx={{
-                      "& p": {
-                        mb: 2,
-                        lineHeight: 1.8,
-                        fontSize: "1.1rem",
-                        textAlign: "justify",
-                        color: "#333",
-                      },
-                      "& p:first-of-type::first-letter": {
-                        fontSize: "4rem",
-                        fontWeight: "bold",
-                        color: "#ff1493",
-                        float: "left",
-                        lineHeight: 1,
-                        paddingRight: "8px",
-                        marginTop: "4px",
-                      },
-                    }}
-                  >
-                    {currentStory.split("\n\n").map((paragraph, index) => (
-                      <Typography key={index} component="p">
-                        {paragraph}
-                      </Typography>
-                    ))}
+                    <Box
+                      sx={{
+                        width: 80,
+                        height: 80,
+                        borderRadius: "50%",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        bgcolor: "rgba(33, 150, 243, 0.1)",
+                        mb: 3,
+                      }}
+                    >
+                      <AutoStories sx={{ fontSize: 40, color: "secondary.main" }} />
+                    </Box>
+                    <Typography variant="h6" gutterBottom>
+                      Your story will appear here
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary" sx={{ maxWidth: 400 }}>
+                      Select an artwork, describe the story you want, and click "Generate Story" to create a unique
+                      narrative inspired by the image
+                    </Typography>
                   </Box>
-                </CardContent>
-              </Card>
-            )}
+                )}
+              </Paper>
+            </Grid>
           </Grid>
-        </Grid>
 
-        {/* Action Buttons */}
-        <Box sx={{ display: "flex", justifyContent: "center", gap: 2, mt: 4, flexWrap: "wrap" }}>
-          <Button
-            variant="contained"
-            size="large"
-            startIcon={<AutoAwesome />}
-            onClick={handleGenerateNewStory}
-            disabled={isLoading}
+          {/* Bottom Section */}
+          <Box
             sx={{
-              background: "linear-gradient(45deg, #ff69b4, #ff1493)",
-              borderRadius: "25px",
-              px: 4,
-              py: 1.5,
-              fontSize: "1.1rem",
-              fontWeight: "bold",
-              boxShadow: "0 4px 15px rgba(255, 105, 180, 0.4)",
-              "&:hover": {
-                background: "linear-gradient(45deg, #ff1493, #c71585)",
-                transform: "translateY(-2px)",
-                boxShadow: "0 6px 20px rgba(255, 105, 180, 0.6)",
-              },
+              mt: 6,
+              mb: 4,
+              p: 4,
+              borderRadius: 4,
+              bgcolor: "#2196f3",
+              color: "white",
+              textAlign: "center",
             }}
           >
-            Generate New Story
-          </Button>
-          <Button
-            variant="contained"
-            size="large"
-            startIcon={<Favorite />}
-            sx={{
-              background: "linear-gradient(45deg, #87ceeb, #4682b4)",
-              borderRadius: "25px",
-              px: 4,
-              py: 1.5,
-              fontSize: "1.1rem",
-              fontWeight: "bold",
-              boxShadow: "0 4px 15px rgba(135, 206, 235, 0.4)",
-              "&:hover": {
-                background: "linear-gradient(45deg, #4682b4, #2e5984)",
-                transform: "translateY(-2px)",
-                boxShadow: "0 6px 20px rgba(135, 206, 235, 0.6)",
-              },
-            }}
-          >
-            Save to Favorites
-          </Button>
-        </Box>
-
-        {/* Company Promotions */}
-        <Paper
-          elevation={8}
-          sx={{
-            mt: 6,
-            p: 4,
-            borderRadius: "25px",
-            background: "linear-gradient(135deg, #e1f5fe 0%, #f3e5f5 100%)",
-            textAlign: "center",
-          }}
-        >
-          <Typography variant="h4" sx={{ mb: 3, color: "#1976d2", fontWeight: "bold" }}>
-            🌟 Unlock Premium Features 🌟
-          </Typography>
-          <Grid container spacing={3}>
-            <Grid>
-              <Card
-                elevation={4}
-                sx={{
-                  p: 3,
-                  borderRadius: "20px",
-                  height: "100%",
-                  background: "linear-gradient(135deg, #ff69b4 0%, #ff1493 100%)",
-                  color: "white",
-                  transition: "transform 0.3s ease",
-                  "&:hover": { transform: "translateY(-5px)" },
-                }}
-              >
-                <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-                  🎨 Creative Plus
-                </Typography>
-                <Typography variant="body1" sx={{ mb: 2, opacity: 0.9 }}>
-                  Unlimited stories, premium characters, and exclusive themes
-                </Typography>
-                <Typography variant="h4" sx={{ mb: 2, fontWeight: "bold" }}>
-                  $9.99
-                  <Typography component="span" variant="body2">
-                    /month
-                  </Typography>
-                </Typography>
-                <Button
-                  variant="contained"
-                  fullWidth
-                  sx={{
-                    background: "rgba(255,255,255,0.2)",
-                    color: "white",
-                    borderRadius: "20px",
-                    "&:hover": { background: "rgba(255,255,255,0.3)" },
-                  }}
-                >
-                  Start Free Trial
-                </Button>
-              </Card>
-            </Grid>
-            <Grid>
-              <Card
-                elevation={6}
-                sx={{
-                  p: 3,
-                  borderRadius: "20px",
-                  height: "100%",
-                  background: "linear-gradient(135deg, #ffd700 0%, #ffa500 100%)",
-                  color: "white",
-                  transform: "scale(1.05)",
-                  border: "3px solid #ff6347",
-                  transition: "transform 0.3s ease",
-                  "&:hover": { transform: "scale(1.1)" },
-                }}
-              >
-                <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-                  👑 Family Premium
-                </Typography>
-                <Typography variant="body1" sx={{ mb: 2, opacity: 0.9 }}>
-                  Everything in Creative Plus + family sharing for up to 6 members
-                </Typography>
-                <Typography variant="h4" sx={{ mb: 2, fontWeight: "bold" }}>
-                  $19.99
-                  <Typography component="span" variant="body2">
-                    /month
-                  </Typography>
-                </Typography>
-                <Button
-                  variant="contained"
-                  fullWidth
-                  sx={{
-                    background: "rgba(255,255,255,0.2)",
-                    color: "white",
-                    borderRadius: "20px",
-                    "&:hover": { background: "rgba(255,255,255,0.3)" },
-                  }}
-                >
-                  Most Popular
-                </Button>
-              </Card>
-            </Grid>
-            <Grid>
-              <Card
-                elevation={4}
-                sx={{
-                  p: 3,
-                  borderRadius: "20px",
-                  height: "100%",
-                  background: "linear-gradient(135deg, #98fb98 0%, #90ee90 100%)",
-                  color: "#2e7d32",
-                  transition: "transform 0.3s ease",
-                  "&:hover": { transform: "translateY(-5px)" },
-                }}
-              >
-                <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-                  🚀 Pro Creator
-                </Typography>
-                <Typography variant="body1" sx={{ mb: 2, opacity: 0.8 }}>
-                  Advanced AI features, custom characters, and commercial usage
-                </Typography>
-                <Typography variant="h4" sx={{ mb: 2, fontWeight: "bold" }}>
-                  $29.99
-                  <Typography component="span" variant="body2">
-                    /month
-                  </Typography>
-                </Typography>
-                <Button
-                  variant="contained"
-                  fullWidth
-                  sx={{
-                    background: "#2e7d32",
-                    color: "white",
-                    borderRadius: "20px",
-                    "&:hover": { background: "#1b5e20" },
-                  }}
-                >
-                  Go Pro
-                </Button>
-              </Card>
-            </Grid>
-          </Grid>
-        </Paper>
-
-        {/* Footer */}
-        <Paper
-          elevation={4}
-          sx={{
-            mt: 4,
-            p: 4,
-            borderRadius: "25px",
-            background: "linear-gradient(135deg, #333 0%, #555 100%)",
-            color: "white",
-          }}
-        >
-          <Grid container spacing={4}>
-            <Grid>
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold", color: "#ff69b4" }}>
-                Kids Canvas
-              </Typography>
-              <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
-                Creating magical stories from your imagination with the power of AI
-              </Typography>
-              <Box sx={{ display: "flex", gap: 1 }}>
-                {["🎨", "📚", "✨"].map((emoji, i) => (
-                  <Box
-                    key={i}
-                    sx={{
-                      width: "40px",
-                      height: "40px",
-                      background: "rgba(255, 105, 180, 0.2)",
-                      borderRadius: "50%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "1.2rem",
-                      cursor: "pointer",
-                      transition: "all 0.3s ease",
-                      "&:hover": {
-                        background: "rgba(255, 105, 180, 0.4)",
-                        transform: "scale(1.1)",
-                      },
-                    }}
-                  >
-                    {emoji}
-                  </Box>
-                ))}
-              </Box>
-            </Grid>
-            <Grid>
-
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-                Features
-              </Typography>
-              {["AI Story Generation", "Character Library", "Voice Narration", "Story Sharing"].map((item) => (
-                <Typography key={item} variant="body2" sx={{ mb: 1, opacity: 0.8, cursor: "pointer" }}>
-                  {item}
-                </Typography>
-              ))}
-            </Grid>
-            <Grid>
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-                Support
-              </Typography>
-              {["Help Center", "Contact Us", "Privacy Policy", "Terms of Service"].map((item) => (
-                <Typography key={item} variant="body2" sx={{ mb: 1, opacity: 0.8, cursor: "pointer" }}>
-                  {item}
-                </Typography>
-              ))}
-            </Grid>
-            <Grid>
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-                Stay Connected
-              </Typography>
-              <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
-                Get updates on new features and stories
-              </Typography>
-              <Box sx={{ display: "flex", gap: 1 }}>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  style={{
-                    flex: 1,
-                    padding: "8px 12px",
-                    borderRadius: "20px",
-                    border: "none",
-                    outline: "none",
-                  }}
-                />
-                <Button
-                  variant="contained"
-                  sx={{
-                    background: "#ff69b4",
-                    borderRadius: "20px",
-                    minWidth: "auto",
-                    px: 2,
-                    "&:hover": { background: "#ff1493" },
-                  }}
-                >
-                  ✉️
-                </Button>
-              </Box>
-            </Grid>
-          </Grid>
-          <Box sx={{ textAlign: "center", mt: 4, pt: 3, borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-            <Typography variant="body2" sx={{ opacity: 0.6 }}>
-              © 2024 Kids Canvas. All rights reserved. Made with ❤️ for creative minds.
+            <Typography variant="h5" gutterBottom>
+              Unleash Creativity with AI
             </Typography>
+            <Typography variant="body1" sx={{ maxWidth: 800, mx: "auto", mb: 3 }}>
+              Our advanced AI technology can create amazing stories from any artwork. From simple sketches to complex
+              paintings, just select an image and describe what you want - then watch the magic happen!
+            </Typography>
+            <Button
+              variant="contained"
+              sx={{
+                bgcolor: "white",
+                color: "#2196f3",
+                "&:hover": {
+                  bgcolor: "rgba(255,255,255,0.9)",
+                },
+              }}
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            >
+              Start Creating Now
+            </Button>
           </Box>
-        </Paper>
-      </Container>
-
-      <style>{`
-        @keyframes float {
-          0%,
-          100% {
-            transform: translateY(0px);
-          }
-          50% {
-            transform: translateY(-20px);
-          }
-        }
-
-        @keyframes spin {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-
-        @keyframes bounce {
-          0%,
-          80%,
-          100% {
-            transform: scale(0);
-          }
-          40% {
-            transform: scale(1);
-          }
-        }
-
-        @keyframes slide {
-          0% {
-            transform: translateX(-100%);
-          }
-          100% {
-            transform: translateX(100%);
-          }
-        }
-      `}</style>
-    </Box>
+        </Container>
+      </Box>
+    </ThemeProvider>
   )
 }
-
-export default StoryPage

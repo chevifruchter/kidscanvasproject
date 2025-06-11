@@ -22,10 +22,13 @@ namespace Api_Kids_Canvas.Controllers
     {
         private readonly IConfiguration _configuration;
         private readonly DataContext _context;
-        public AuthController(IConfiguration configuration, DataContext context)
+        private readonly ILogger<AuthController> _logger;
+
+        public AuthController(IConfiguration configuration, DataContext context, ILogger<AuthController> logger)
         {
             _configuration = configuration;
             _context = context;
+            _logger = logger;
         }
 
         [HttpPost("get-admin-token")]
@@ -153,23 +156,32 @@ namespace Api_Kids_Canvas.Controllers
         public async Task<IActionResult> Register([FromBody] LoginModel loginModel)
         {
             var user = new User { Name = loginModel.UserName, Phone = loginModel.Phone, Email = loginModel.Email, Password = loginModel.Password };
-            await _context.Users.AddAsync(user);
-            await _context.SaveChangesAsync();
+            try
+            {
+                await _context.Users.AddAsync(user);
+                await _context.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Error in registration");
+                return StatusCode(500, "Registration failed");
+            }
 
             var token = CreateToken(user); // פונקציה שמייצרת JWT
 
             return Ok(new { token });
         }
+            
         private string CreateToken(User user)
         {
-            var claims = new List<Claim>()
-                {
+                   var claims = new List<Claim>()
+                   {
                       new Claim("name", user.Name),
                       new Claim("phone", user.Phone),
                       new Claim("email", user.Email),
-                      new Claim("password",user.Password),
+                      //new Claim("password",user.Password),
                       new Claim("role","user")
-                };
+                   };
 
             var secretKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration.GetValue<string>("JWT:Key")));
             var signinCredentials = new SigningCredentials(secretKey, SecurityAlgorithms.HmacSha256);
@@ -182,6 +194,7 @@ namespace Api_Kids_Canvas.Controllers
             var tokenString = new JwtSecurityTokenHandler().WriteToken(tokeOptions);
             return tokenString;
         }
+
         [HttpPost("check")]
         public IActionResult CheckUser([FromBody] LoginModel model)
         {

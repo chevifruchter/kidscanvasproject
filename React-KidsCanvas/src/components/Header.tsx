@@ -9,6 +9,7 @@ import AutoAwesomeIcon from "@mui/icons-material/AutoAwesome"
 import LoginIcon from "@mui/icons-material/Login"
 import "../styles/Header.css";
 import { useSearch } from "../Context/searchContext";
+import UserAvatar from "./UserAvatar";
 
 export default function Header() {
   // const [searchQuery, setSearchQuery] = useState("")
@@ -20,6 +21,7 @@ export default function Header() {
         <div className="header-content">
           {/* Logo */}
           <div className="logo-container">
+            <UserAvatar />
             <Link to="/" className="logo-link">
               <span className="logo-text">Kids Canvas</span>
               <PaletteIcon className="logo-icon" />

@@ -1,13 +1,14 @@
 import React, {  useState } from 'react';
 import { useUserContext } from '../Context/userContext';
 import { Service as LoginService } from '../services/LoginService';
+import { useNavigate } from 'react-router-dom';
 
 const Login: React.FC = () => {
   const { setMyUser } = useUserContext();
   const [loginName, setLoginName] = useState('');
   const [loginPassword, setLoginPassword] = useState('');
   const [rememberMe, setRememberMe] = useState(false);
-
+  const navigate = useNavigate();
   const handleLogin = async (e: React.FormEvent) => {
     console.log("name: ", loginName," password:", loginPassword);
     e.preventDefault();
@@ -20,6 +21,7 @@ const Login: React.FC = () => {
       } else {
         sessionStorage.setItem('user', JSON.stringify(foundUser));
       }
+       navigate("/");
     }
   };
   return (
