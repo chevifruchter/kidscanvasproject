@@ -30,18 +30,23 @@ export default function ColoringDraw({ imageUrl }: Props) {
     const [isDrawing, setIsDrawing] = useState(false);
     const [history, setHistory] = useState<string[]>([]);
     const [redoStack, setRedoStack] = useState<string[]>([]);
-    const base_url = import.meta.env.VITE_BASE_URL_API;
-    // const newDrawings: Drawing[] = [{ id: "1", name: "arnav2", path: "/drawings/arnav2.jpg", width: 300, height: 350 }, { id: "2", name: "arnav1", path: "/drawings/arnav1.jpg", width: 300, height: 600 }, { id: "3", name: "alepant", path: "/drawings/alepant.jpg", width: 800, height: 600 }];
+    // const base_url = import.meta.env.VITE_BASE_URL_API;
+    const newDrawings: Drawing[] = [{ id: "1", name: "ארנב בתוך סל", path: "/drawings/ארנב בתוך סל.jpg", width: 300, height: 350 }, { id: "2", name: "ארנב במטוס", path: "/drawings/ארנב במטוס.jpg", width: 300, height: 600 }, { id: "3", name: "פיל", path: "/drawings/פיל.jpg", width: 800, height: 600 },
+      { id: "1", name: "ארנב בתוך סל", path: "/drawings/ארנב בתוך סל.jpg", width: 300, height: 350 }, { id: "2", name: "ארנב במטוס", path: "/drawings/ארנב במטוס.jpg", width: 300, height: 600 }, { id: "3", name: "פיל", path: "/drawings/פיל.jpg", width: 800, height: 600 },
+{ id: "1", name: "ארנב בתוך סל", path: "/drawings/ארנב בתוך סל.jpg", width: 300, height: 350 }, { id: "2", name: "ארנב במטוס", path: "/drawings/ארנב במטוס.jpg", width: 300, height: 600 }, { id: "3", name: "פיל", path: "/drawings/פיל.jpg", width: 800, height: 600 },
+{ id: "1", name: "ארנב בתוך סל", path: "/drawings/ארנב בתוך סל.jpg", width: 300, height: 350 }, { id: "2", name: "ארנב במטוס", path: "/drawings/ארנב במטוס.jpg", width: 300, height: 600 }, { id: "3", name: "פיל", path: "/drawings/פיל.jpg", width: 800, height: 600 },
+{ id: "1", name: "ארנב בתוך סל", path: "/drawings/ארנב בתוך סל.jpg", width: 300, height: 350 }, { id: "2", name: "ארנב במטוס", path: "/drawings/ארנב במטוס.jpg", width: 300, height: 600 }, { id: "3", name: "פיל", path: "/drawings/פיל.jpg", width: 800, height: 600 }];
+
     useEffect(() => {
         if (imageUrl) {
             setSelectedImage(imageUrl);
             return;
         }
-        fetch(`${base_url}/api/Drawings`)
-            .then((res) => res.json())
-            .then((data) => setDrawings(data));
+        // fetch(`${base_url}/api/Drawings`)
+        //     .then((res) => res.json())
+        //     .then((data) => setDrawings(data));
 
-        // setDrawings(newDrawings);
+        setDrawings(newDrawings);
     }, []);
 
     useEffect(() => {
@@ -49,7 +54,7 @@ export default function ColoringDraw({ imageUrl }: Props) {
         if (selectedImage && canvasRef.current) {
             const img = new Image();
             img.crossOrigin = "anonymous";
-            img.src = `/drawings/${selectedImage.name}`;
+            img.src = selectedImage.path; // כאן אנחנו משתמשים בנתיב של התמונה שנבחרה
             img.onload = () => {
                 const canvas = canvasRef.current;
                 if (!canvas) return; // אם אין קנבס, יוצאים
@@ -235,7 +240,7 @@ export default function ColoringDraw({ imageUrl }: Props) {
         if (!canvasRef.current) return;
         const dataURL = canvasRef.current.toDataURL('image/png');
         const link = document.createElement('a');
-        link.download = 'colored-image.png';
+        link.download = selectedImage?.name || 'drawing.png';
         link.href = dataURL;
         link.click();
     };
