@@ -34,7 +34,7 @@ namespace Api_Kids_Canvas.Controllers
 
 
         [HttpGet("upload-url")]
-        public async Task<IActionResult> GetUploadUrl([FromForm] DrawingModel drawing, [FromForm] IFormFile file)
+        public async Task<IActionResult> GetUploadUrl([FromForm] DrawingModel drawing)
         {
             if (string.IsNullOrEmpty(drawing.Name))
                 return BadRequest("שם הקובץ נדרש");
