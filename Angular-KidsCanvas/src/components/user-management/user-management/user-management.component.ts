@@ -37,7 +37,7 @@ export class UserManagementComponent implements OnInit {
   ngOnInit(): void {
     try {
       this.http.post<{ token: string }>(
-        'https://localhost:7001/api/Auth/get-admin-token',
+        'https://kidscanvasproject.onrender.com/api/Auth/get-admin-token',
         {
           userName: this.currentUser.userName,
           phone: this.currentUser.phone,
@@ -51,7 +51,7 @@ export class UserManagementComponent implements OnInit {
 
           // Use the token to fetch users
           const headers = new HttpHeaders({ Authorization: 'Bearer ' + token });
-          this.http.get('https://localhost:7001/api/Users', { headers })
+          this.http.get('https://kidscanvasproject.onrender.com/api/Users', { headers })
             .subscribe(users => {
               this.users = users as any[];
               // this.router.navigate(["/home"]);

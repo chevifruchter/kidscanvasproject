@@ -106,32 +106,43 @@ const Home = () => {
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ bgcolor: "background.default", minHeight: "100vh", py: 4 }}>
-          <Container maxWidth="lg">
-      <div style={{ textAlign: "center", marginTop: "20px" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(5, 248px)", // 5 עמודות ברוחב קבוע
-            gap: "12px",
-            justifyContent: "center", // מרכז את הגריד
-            margin: "0 auto", // מרכז את הגריד גם אם יש מקום פנוי
-            // maxWidth: "calc(5 * 248px + 4 * 12px)", // רוחב מקסימלי לגריד
-          }}
-        >
-          {filteredPaintings.map((d, index) => {
-            if (!d.path) {
-              console.warn("ציור בלי path:", d);
-              return null;
-            }
-            return (
-              <div key={index} style={{ textAlign: "center" }}>
-                <Tooltip title="לחץ להגדלה" arrow >
-                  <IconButton onClick={() => {
-                    setSelectedDrawing(d);
-                    console.log("ID לפני ניווט:", d.id);
-                    navigate(`/open-drawing/${d.id}`);
-                  }}>
-                    {/* <Box className="image-grid">
+        <Container maxWidth="lg">
+          <div style={{ textAlign: "center", marginTop: "20px" }}>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(5, 248px)", // 5 עמודות ברוחב קבוע
+                gap: "12px",
+                justifyContent: "center", // מרכז את הגריד
+                margin: "0 auto", // מרכז את הגריד גם אם יש מקום פנוי
+                // maxWidth: "calc(5 * 248px + 4 * 12px)", // רוחב מקסימלי לגריד
+              }}
+            >
+              {filteredPaintings.map((d, index) => {
+                if (!d.path) {
+                  console.warn("ציור בלי path:", d);
+                  return null;
+                }
+                return (
+                  <div key={index} style={{ textAlign: "center" }}>
+                    <Tooltip title="לחץ להגדלה" arrow >
+                      <IconButton onClick={() => {
+                        setSelectedDrawing(d);
+                        console.log("ID לפני ניווט:", d.id);
+                        navigate(`/open-drawing/${d.id}`);
+                        <img
+                          src={d.path}
+                          alt={d.name}
+                          style={{
+                            width: "100%",
+                            height: "auto",
+                            borderRadius: "12px",
+                            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                            cursor: "pointer"
+                          }}
+                        />
+                      }}>
+                        {/* <Box className="image-grid">
                       {drawings.map((d, i) => (
                         <Box key={i}>
                           <img
@@ -144,127 +155,127 @@ const Home = () => {
                         </Box>
                       ))}
                     </Box> */}
-                  </IconButton>
-                </Tooltip>
-              </div>
-            );
-          })}
-        </div>
+                      </IconButton>
+                    </Tooltip>
+                  </div>
+                );
+              })}
+            </div>
 
 
 
 
-        
-        {/* Footer */}
-        <Paper
-          elevation={4}
-          sx={{
-            mt: 4,
-            p: 4,
-            borderRadius: "25px",
-            background: "linear-gradient(135deg, #333 0%, #555 100%)",
-            color: "white",
-          }}
-        >
-          <Grid container spacing={4}>
-            <Grid>
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold", color: "#ff69b4" }}>
-                Kids Canvas
-              </Typography>
-              <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
-                Creating magical stories from your imagination with the power of AI
-              </Typography>
-              <Box sx={{ display: "flex", gap: 1 }}>
-                {["🎨", "📚", "✨"].map((emoji, i) => (
-                  <Box
-                    key={i}
-                    sx={{
-                      width: "40px",
-                      height: "40px",
-                      background: "rgba(255, 105, 180, 0.2)",
-                      borderRadius: "50%",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      fontSize: "1.2rem",
-                      cursor: "pointer",
-                      transition: "all 0.3s ease",
-                      "&:hover": {
-                        background: "rgba(255, 105, 180, 0.4)",
-                        transform: "scale(1.1)",
-                      },
-                    }}
-                  >
-                    {emoji}
+
+            {/* Footer */}
+            <Paper
+              elevation={4}
+              sx={{
+                mt: 4,
+                p: 4,
+                borderRadius: "25px",
+                background: "linear-gradient(135deg, #333 0%, #555 100%)",
+                color: "white",
+              }}
+            >
+              <Grid container spacing={4}>
+                <Grid>
+                  <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold", color: "#ff69b4" }}>
+                    Kids Canvas
+                  </Typography>
+                  <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
+                    Creating magical stories from your imagination with the power of AI
+                  </Typography>
+                  <Box sx={{ display: "flex", gap: 1 }}>
+                    {["🎨", "📚", "✨"].map((emoji, i) => (
+                      <Box
+                        key={i}
+                        sx={{
+                          width: "40px",
+                          height: "40px",
+                          background: "rgba(255, 105, 180, 0.2)",
+                          borderRadius: "50%",
+                          display: "flex",
+                          alignItems: "center",
+                          justifyContent: "center",
+                          fontSize: "1.2rem",
+                          cursor: "pointer",
+                          transition: "all 0.3s ease",
+                          "&:hover": {
+                            background: "rgba(255, 105, 180, 0.4)",
+                            transform: "scale(1.1)",
+                          },
+                        }}
+                      >
+                        {emoji}
+                      </Box>
+                    ))}
                   </Box>
-                ))}
-              </Box>
-            </Grid>
-            <Grid>
+                </Grid>
+                <Grid>
 
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-                Features
-              </Typography>
-              {["AI Story Generation", "Character Library", "Voice Narration", "Story Sharing"].map((item) => (
-                <Typography key={item} variant="body2" sx={{ mb: 1, opacity: 0.8, cursor: "pointer" }}>
-                  {item}
+                  <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+                    Features
+                  </Typography>
+                  {["AI Story Generation", "Character Library", "Voice Narration", "Story Sharing"].map((item) => (
+                    <Typography key={item} variant="body2" sx={{ mb: 1, opacity: 0.8, cursor: "pointer" }}>
+                      {item}
+                    </Typography>
+                  ))}
+                </Grid>
+                <Grid>
+                  <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+                    Support
+                  </Typography>
+                  {["Help Center", "Contact Us", "Privacy Policy", "Terms of Service"].map((item) => (
+                    <Typography key={item} variant="body2" sx={{ mb: 1, opacity: 0.8, cursor: "pointer" }}>
+                      {item}
+                    </Typography>
+                  ))}
+                </Grid>
+                <Grid>
+                  <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+                    Stay Connected
+                  </Typography>
+                  <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
+                    Get updates on new features and stories
+                  </Typography>
+                  <Box sx={{ display: "flex", gap: 1 }}>
+                    <input
+                      type="email"
+                      placeholder="Enter your email"
+                      style={{
+                        flex: 1,
+                        padding: "8px 12px",
+                        borderRadius: "20px",
+                        border: "none",
+                        outline: "none",
+                      }}
+                    />
+                    <Button
+                      variant="contained"
+                      sx={{
+                        background: "#ff69b4",
+                        borderRadius: "20px",
+                        minWidth: "auto",
+                        px: 2,
+                        "&:hover": { background: "#ff1493" },
+                      }}
+                    >
+                      ✉️
+                    </Button>
+                  </Box>
+                </Grid>
+              </Grid>
+              <Box sx={{ textAlign: "center", mt: 4, pt: 3, borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+                <Typography variant="body2" sx={{ opacity: 0.6 }}>
+                  © 2024 Kids Canvas. All rights reserved. Made with ❤️ for creative minds.
                 </Typography>
-              ))}
-            </Grid>
-            <Grid>
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-                Support
-              </Typography>
-              {["Help Center", "Contact Us", "Privacy Policy", "Terms of Service"].map((item) => (
-                <Typography key={item} variant="body2" sx={{ mb: 1, opacity: 0.8, cursor: "pointer" }}>
-                  {item}
-                </Typography>
-              ))}
-            </Grid>
-            <Grid>
-              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
-                Stay Connected
-              </Typography>
-              <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
-                Get updates on new features and stories
-              </Typography>
-              <Box sx={{ display: "flex", gap: 1 }}>
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  style={{
-                    flex: 1,
-                    padding: "8px 12px",
-                    borderRadius: "20px",
-                    border: "none",
-                    outline: "none",
-                  }}
-                />
-                <Button
-                  variant="contained"
-                  sx={{
-                    background: "#ff69b4",
-                    borderRadius: "20px",
-                    minWidth: "auto",
-                    px: 2,
-                    "&:hover": { background: "#ff1493" },
-                  }}
-                >
-                  ✉️
-                </Button>
               </Box>
-            </Grid>
-          </Grid>
-          <Box sx={{ textAlign: "center", mt: 4, pt: 3, borderTop: "1px solid rgba(255,255,255,0.1)" }}>
-            <Typography variant="body2" sx={{ opacity: 0.6 }}>
-              © 2024 Kids Canvas. All rights reserved. Made with ❤️ for creative minds.
-            </Typography>
-          </Box>
-        </Paper>
-      </div>
-      </Container>
-           {/* Global styles for animations */}
-                <style>{`
+            </Paper>
+          </div>
+        </Container>
+        {/* Global styles for animations */}
+        <style>{`
           @keyframes float {
             0%, 100% { 
               transform: translateY(0px); 
@@ -274,7 +285,7 @@ const Home = () => {
             }
           }
         `}</style>
-    </Box>
+      </Box>
     </ThemeProvider >
 
   );

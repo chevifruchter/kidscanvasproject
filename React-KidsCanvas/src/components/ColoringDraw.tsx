@@ -17,8 +17,10 @@ import ClearIcon from '@mui/icons-material/Clear';
 import SaveAltIcon from '@mui/icons-material/SaveAlt';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import "../styles/ColoringDraw.css";
-
-export default function ColoringDraw() {
+type Props = {
+    imageUrl: Drawing | null; // הנתיב או ה-URL של הציור (למשל משרת)
+};
+export default function ColoringDraw({ imageUrl }: Props) {
     const [drawings, setDrawings] = useState<Drawing[]>([]);
     const [selectedImage, setSelectedImage] = useState<Drawing | null>(null);
     const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -28,33 +30,51 @@ export default function ColoringDraw() {
     const [isDrawing, setIsDrawing] = useState(false);
     const [history, setHistory] = useState<string[]>([]);
     const [redoStack, setRedoStack] = useState<string[]>([]);
-const base_url = import.meta.env.VITE_BASE_URL_API;
+    const base_url = import.meta.env.VITE_BASE_URL_API;
+    // const newDrawings: Drawing[] = [{ id: "1", name: "arnav2", path: "/drawings/arnav2.jpg", width: 300, height: 350 }, { id: "2", name: "arnav1", path: "/drawings/arnav1.jpg", width: 300, height: 600 }, { id: "3", name: "alepant", path: "/drawings/alepant.jpg", width: 800, height: 600 }];
     useEffect(() => {
+        if (imageUrl) {
+            setSelectedImage(imageUrl);
+            return;
+        }
         fetch(`${base_url}/api/Drawings`)
             .then((res) => res.json())
             .then((data) => setDrawings(data));
+
+        // setDrawings(newDrawings);
     }, []);
 
     useEffect(() => {
+
         if (selectedImage && canvasRef.current) {
             const img = new Image();
             img.crossOrigin = "anonymous";
-            img.src = selectedImage?.path;
-            // canvasRef.current.width = selectedImage?.width;
-            // canvasRef.current.height = selectedImage.height;
+            img.src = `/drawings/${selectedImage.name}`;
             img.onload = () => {
                 const canvas = canvasRef.current;
-                if (!canvas) {
-                    console.error("Canvas not found");
-                    return;
-                }
+                if (!canvas) return; // אם אין קנבס, יוצאים
+
                 const ctx = canvas.getContext("2d");
-                if (!ctx) {
-                    console.error("Context not found");
-                    return;
-                }
-                ctx.drawImage(img, 0, 0);
+                if (!ctx) return;
+
+                const canvasWidth = 345;
+                const canvasHeight = 450;
+
+                // כאן בטוח שיש canvas, אז אפשר לשנות את המידות
+                canvas.width = canvasWidth;
+                canvas.height = canvasHeight;
+
+                const scale = Math.min(canvasWidth / img.width, canvasHeight / img.height);
+                const scaledWidth = img.width * scale;
+                const scaledHeight = img.height * scale;
+
+                const x = (canvasWidth - scaledWidth) / 2;
+                const y = (canvasHeight - scaledHeight) / 2;
+
+                ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+                ctx.drawImage(img, x, y, scaledWidth, scaledHeight);
             };
+
         }
     }, [selectedImage]);
 
@@ -91,8 +111,11 @@ const base_url = import.meta.env.VITE_BASE_URL_API;
         if (!canvas) return;
         const ctx = canvas.getContext('2d')!;
         const rect = canvas.getBoundingClientRect();
-        const x = Math.floor(e.clientX - rect.left);
-        const y = Math.floor(e.clientY - rect.top);
+        const scaleX = canvas.width / rect.width;
+        const scaleY = canvas.height / rect.height;
+        const x = Math.floor((e.clientX - rect.left) * scaleX);
+        const y = Math.floor((e.clientY - rect.top) * scaleY);
+
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
         const targetColor = getColorAtPixel(imageData, x, y);
         const fillColor = tool === 'fill' ? hexToRgba(color) : [255, 255, 255, 0];
@@ -101,35 +124,56 @@ const base_url = import.meta.env.VITE_BASE_URL_API;
         saveToHistory();
     };
 
-    const getColorAtPixel = (imageData: ImageData, x: number, y: number) => {
+    const getColorAtPixel = (imageData: ImageData, x: number, y: number): Uint8ClampedArray => {
         const { data, width } = imageData;
         const index = (y * width + x) * 4;
-        return data.slice(index, index + 4);
+        return new Uint8ClampedArray(data.slice(index, index + 4));
     };
 
-    const colorsMatch = (a: Uint8ClampedArray | number[], b: Uint8ClampedArray | number[], tolerance = 32) => {
+    const colorsMatch = (
+        a: Uint8ClampedArray,
+        b: Uint8ClampedArray,
+        tolerance = 16
+    ): boolean => {
         return (
-            Math.abs(a[0] - b[0]) < tolerance &&
-            Math.abs(a[1] - b[1]) < tolerance &&
-            Math.abs(a[2] - b[2]) < tolerance &&
-            Math.abs(a[3] - b[3]) < tolerance
+            Math.abs(a[0] - b[0]) <= tolerance &&
+            Math.abs(a[1] - b[1]) <= tolerance &&
+            Math.abs(a[2] - b[2]) <= tolerance &&
+            Math.abs(a[3] - b[3]) <= tolerance
         );
     };
 
-    const floodFill = (imageData: ImageData, x: number, y: number, targetColor: Uint8ClampedArray<ArrayBuffer>, fillColor: number[]) => {
+    const floodFill = (
+        imageData: ImageData,
+        startX: number,
+        startY: number,
+        targetColor: Uint8ClampedArray,
+        fillColor: number[],
+    ) => {
         const { data, width, height } = imageData;
-        const stack = [[x, y]];
-        while (stack.length) {
-            const [cx, cy] = stack.pop()!;
-            const index = (cy * width + cx) * 4;
+        const visited = new Uint8Array(width * height); // חוסך המון בזיכרון
+        const queue = [[startX, startY]];
+
+        const getIndex = (x: number, y: number) => (y * width + x) * 4;
+
+        while (queue.length > 0) {
+            const [x, y] = queue.shift()!;
+            if (x < 0 || x >= width || y < 0 || y >= height) continue;
+
+            const index = getIndex(x, y);
+            const pos = y * width + x;
+            if (visited[pos]) continue;
+            visited[pos] = 1;
+
             const currentColor = data.slice(index, index + 4);
-            if (colorsMatch(currentColor, targetColor)) {
-                data.set(fillColor, index);
-                if (cx > 0) stack.push([cx - 1, cy]);
-                if (cx < width - 1) stack.push([cx + 1, cy]);
-                if (cy > 0) stack.push([cx, cy - 1]);
-                if (cy < height - 1) stack.push([cx, cy + 1]);
-            }
+            if (!colorsMatch(currentColor, targetColor)) continue;
+
+            data.set(fillColor, index);
+
+            queue.push([x + 1, y]);
+            queue.push([x - 1, y]);
+            queue.push([x, y + 1]);
+            queue.push([x, y - 1]);
         }
     };
 
@@ -243,6 +287,7 @@ const base_url = import.meta.env.VITE_BASE_URL_API;
                         onMouseLeave={finishDrawing}
                         onClick={handleCanvasClick}
                         className="drawing-canvas"
+
                     />
 
 
@@ -268,7 +313,7 @@ const base_url = import.meta.env.VITE_BASE_URL_API;
                             min={1}
                             max={50}
                             value={brushSize}
-                            onChange={(e, val) => {setBrushSize(val as number);e}}
+                            onChange={(e, val) => { setBrushSize(val as number); e }}
                             size="small"
                             sx={{ width: 100 }}
                         />

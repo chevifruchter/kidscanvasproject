@@ -62,11 +62,11 @@ function App() {
           <Layout>
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/coloring-game" element={<ColoringDraw />} />
-              <Route path="/open-drawing/:id" element={<OpenDrawing />}/>
-                <Route path="/ai-drawing" element={<AIDraw/>} />
-                <Route path="/favorites" element={<Favorites />} />
-                  <Route path="/story-page" element={<StoryPage/>} />
+              <Route path="/coloring-game" element={<ColoringDraw imageUrl={null} />} />
+              <Route path="/open-drawing/:id" element={<OpenDrawing />} />
+              <Route path="/ai-drawing" element={<AIDraw />} />
+              <Route path="/favorites" element={<Favorites />} />
+              <Route path="/story-page" element={<StoryPage />} />
               <Route path="/auth" element={<Auth />} />
             </Routes>
           </Layout>

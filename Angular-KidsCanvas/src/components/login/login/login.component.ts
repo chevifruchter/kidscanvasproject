@@ -12,7 +12,7 @@ import { user } from '../../../models/user';
   selector: 'app-login',
   imports: [
     ReactiveFormsModule,
-    RouterLink,
+    // RouterLink,
     MatInputModule,
     MatButtonModule,
     MatCardModule,
@@ -42,7 +42,7 @@ export class LoginComponent {
       const user: user = this.loginForm.value;
       console.log('Form Data:', this.loginForm.value);
       localStorage.setItem('data', JSON.stringify(user));
-      this.router.navigate(['/user-management']);
+      this.router.navigate(['/home']);
     }
   }
 }

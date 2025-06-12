@@ -25,26 +25,25 @@ import "../styles/OpenDrawing.css";
 import { Drawing } from "../models/Drawing"
 
 export default function OpenDrawing() {
-  const { id: paramId } = useParams();
+   const { id } = useParams();
   const location = useLocation();
 
   const [drawingId, setDrawingId] = useState<string | undefined>(undefined);
 
   useEffect(() => {
-    // נבדוק קודם אם יש id בפרמטרים, ואם לא ניקח מ-state
-    if (paramId) {
-      setDrawingId(paramId);
+    if (id) {
+      setDrawingId(id);
     } else if (location.state?.id) {
       setDrawingId(location.state.id);
     } else {
       console.warn("לא התקבל ID מהנתיב ולא מה-state");
     }
-  }, [paramId, location.state]);
+  }, [id, location.state]);
 
   // const location = useLocation();
   // const id = location.state?.id;
   // const { id } = useParams();
-  console.log(`drawingcontext ${drawingId}`);
+  console.log(`drawingcontext ${id}`);
 
   const navigate = useNavigate()
   const [drawing, setDrawing] = useState<Drawing | null>(null)
