@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import { useUserContext } from "../Context/userContext";
 
 const UserAvatar = () => {

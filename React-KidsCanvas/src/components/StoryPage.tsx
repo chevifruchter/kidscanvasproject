@@ -164,72 +164,93 @@ export default function AIStoryGenerator() {
     }
     setShowGallery(false)
   }
-  const generateStory = async () => {
-   const token = import.meta.env.VITE_MY_TOKEN;
+  const generateStoryFromServer = async () => {
+  if ((!selectedImage && !selectedGalleryImage) || !prompt) return
 
-    if ((!selectedImage && !selectedGalleryImage) || !prompt) return
+  setIsGenerating(true)
+  setGeneratedStory("")
 
-    setIsGenerating(true)
-
-    try {
-       const response = await fetch(
-                "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
-                {
-                    method: "POST",
-                    headers: {
-                        Authorization: "Bearer " + token,
-                        "Content-Type": "application/json",
-                    },
-                    body: JSON.stringify({ inputs: prompt }),
-                },
-            )
-      // const { text } = await generateText({
-      //   model: openai("gpt-4-vision-preview"),
-      //   messages: [
-      //     {
-      //       role: "user",
-      //       content: [
-      //         { type: "text", text: `Create a story in hebrow about this artwork: ${prompt}` },
-      //         { 
-      //           type: "image", 
-      //           image: selectedImage 
-      //             ? await selectedImage.arrayBuffer() 
-      //             : new URL(imagePreview)
-      //         }
-      //       ]
-      //     }
-      //   ]
-      // });
-      // setGeneratedStory(text);
-    
-
-      // Simulation for demo purposes
-      setTimeout(() => {
-        const imageSource = selectedGalleryImage
-          ? galleryImages.find((img) => img.id === selectedGalleryImage)?.title
-          : "the uploaded artwork"
-
-        const sampleStory = `
-Once upon a time, in a world where colors spoke and shapes danced, there existed ${imageSource} - a masterpiece that held secrets beyond imagination.
-
-${prompt}
-
-The artwork seemed to breathe with life, each brushstroke telling a story of its own. Viewers would stand mesmerized, feeling as though they could step right into the scene and become part of its narrative.
-
-Some said that on quiet nights, when the gallery was empty and moonlight streamed through the windows, the characters in the painting would move, continuing their adventures beyond what the artist had originally created.
-
-What made this piece truly special wasn't just its technical brilliance, but the emotions it evoked - a sense of wonder, nostalgia, and the feeling that magic exists all around us, if only we take the time to notice.
-
-And so, the legacy of this artwork continued, inspiring generations of dreamers and storytellers to see the world not just as it is, but as it could be.`
-
-        setGeneratedStory(sampleStory)
-        setIsGenerating(false)
-      }, 2000)
-    } catch (error) {
-      console.error("Error generating story:", error)
-      setIsGenerating(false)
+  try {
+    const formData = new FormData()
+    if (selectedImage) {
+      formData.append("image", selectedImage)
+    } else if (selectedGalleryImage !== null) {
+      const galleryImage = galleryImages.find((img) => img.id === selectedGalleryImage)
+      if (galleryImage) {
+        const response = await fetch(galleryImage.url)
+        const blob = await response.blob()
+        formData.append("image", blob, "gallery-image.png")
+      }
     }
+
+    formData.append("prompt", prompt)
+
+    const response = await fetch("https://localhost:7001/api/DrawingStory/create-story", {
+      method: "POST",
+      body: formData,
+    })
+
+    if (!response.ok) {
+      const errorText = await response.text()
+      console.error("Failed to generate story:", errorText)
+      setGeneratedStory("שגיאה ביצירת הסיפור: " + errorText)
+    } else {
+      const storyText = await response.text()
+      setGeneratedStory(storyText)
+    }
+  } catch (error) {
+    console.error("Error while generating story:", error)
+    setGeneratedStory("אירעה שגיאה בעת שליחת הבקשה לשרת.")
+  } finally {
+    setIsGenerating(false)
   }
+}
+
+//   const generateStory = async () => {
+//    const token = import.meta.env.VITE_MY_TOKEN;
+
+//     if ((!selectedImage && !selectedGalleryImage) || !prompt) return
+
+//     setIsGenerating(true)
+
+//     try {
+//       //  const response = await fetch(
+//       //           "https://api-inference.huggingface.co/models/stabilityai/stable-diffusion-xl-base-1.0",
+//       //           {
+//       //               method: "POST",
+//       //               headers: {
+//       //                   Authorization: "Bearer " + token,
+//       //                   "Content-Type": "application/json",
+//       //               },
+//       //               body: JSON.stringify({ inputs: prompt }),
+//       //           },
+//       //       )
+//       setTimeout(() => {
+//         const imageSource = selectedGalleryImage
+//           ? galleryImages.find((img) => img.id === selectedGalleryImage)?.title
+//           : "the uploaded artwork"
+
+//         const sampleStory = `
+// Once upon a time, in a world where colors spoke and shapes danced, there existed ${imageSource} - a masterpiece that held secrets beyond imagination.
+
+// ${prompt}
+
+// The artwork seemed to breathe with life, each brushstroke telling a story of its own. Viewers would stand mesmerized, feeling as though they could step right into the scene and become part of its narrative.
+
+// Some said that on quiet nights, when the gallery was empty and moonlight streamed through the windows, the characters in the painting would move, continuing their adventures beyond what the artist had originally created.
+
+// What made this piece truly special wasn't just its technical brilliance, but the emotions it evoked - a sense of wonder, nostalgia, and the feeling that magic exists all around us, if only we take the time to notice.
+
+// And so, the legacy of this artwork continued, inspiring generations of dreamers and storytellers to see the world not just as it is, but as it could be.`
+
+//         setGeneratedStory(sampleStory)
+//         setIsGenerating(false)
+//       }, 2000)
+//     } catch (error) {
+//       console.error("Error generating story:", error)
+//       setIsGenerating(false)
+//     }
+//   }
 
   const copyToClipboard = () => {
     navigator.clipboard.writeText(generatedStory)
@@ -489,7 +510,7 @@ And so, the legacy of this artwork continued, inspiring generations of dreamers 
                   variant="contained"
                   size="large"
                   fullWidth
-                  onClick={generateStory}
+                  onClick={generateStoryFromServer}
                   disabled={isGenerating || !imagePreview || !prompt}
                   startIcon={isGenerating ? <CircularProgress size={20} color="inherit" /> :<></>}
                   sx={{
@@ -564,7 +585,7 @@ And so, the legacy of this artwork continued, inspiring generations of dreamers 
                       <IconButton size="small" onClick={downloadStory} title="Download story">
                         <Download fontSize="small" />
                       </IconButton>
-                      <IconButton size="small" onClick={generateStory} disabled={isGenerating} title="Regenerate story">
+                      <IconButton size="small" onClick={generateStoryFromServer} disabled={isGenerating} title="Regenerate story">
                         <Refresh fontSize="small" />
                       </IconButton>
                     </Box>
@@ -661,9 +682,118 @@ And so, the legacy of this artwork continued, inspiring generations of dreamers 
             >
               Start Creating Now
             </Button>
+            
           </Box>
+              {/* Footer */}
+        <Paper
+          elevation={4}
+          sx={{
+            mt: 4,
+            p: 4,
+            borderRadius: "25px",
+            background: "linear-gradient(135deg, #333 0%, #555 100%)",
+            color: "white",
+          }}
+        >
+          <Grid container spacing={4}>
+            <Grid>
+              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold", color: "#ff69b4" }}>
+                Kids Canvas
+              </Typography>
+              <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
+                Creating magical stories from your imagination with the power of AI
+              </Typography>
+              <Box sx={{ display: "flex", gap: 1 }}>
+                {["🎨", "📚", "✨"].map((emoji, i) => (
+                  <Box
+                    key={i}
+                    sx={{
+                      width: "40px",
+                      height: "40px",
+                      background: "rgba(255, 105, 180, 0.2)",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "1.2rem",
+                      cursor: "pointer",
+                      transition: "all 0.3s ease",
+                      "&:hover": {
+                        background: "rgba(255, 105, 180, 0.4)",
+                        transform: "scale(1.1)",
+                      },
+                    }}
+                  >
+                    {emoji}
+                  </Box>
+                ))}
+              </Box>
+            </Grid>
+            <Grid>
+
+              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+                Features
+              </Typography>
+              {["AI Story Generation", "Character Library", "Voice Narration", "Story Sharing"].map((item) => (
+                <Typography key={item} variant="body2" sx={{ mb: 1, opacity: 0.8, cursor: "pointer" }}>
+                  {item}
+                </Typography>
+              ))}
+            </Grid>
+            <Grid>
+              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+                Support
+              </Typography>
+              {["Help Center", "Contact Us", "Privacy Policy", "Terms of Service"].map((item) => (
+                <Typography key={item} variant="body2" sx={{ mb: 1, opacity: 0.8, cursor: "pointer" }}>
+                  {item}
+                </Typography>
+              ))}
+            </Grid>
+            <Grid>
+              <Typography variant="h6" sx={{ mb: 2, fontWeight: "bold" }}>
+                Stay Connected
+              </Typography>
+              <Typography variant="body2" sx={{ mb: 2, opacity: 0.8 }}>
+                Get updates on new features and stories
+              </Typography>
+              <Box sx={{ display: "flex", gap: 1 }}>
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  style={{
+                    flex: 1,
+                    padding: "8px 12px",
+                    borderRadius: "20px",
+                    border: "none",
+                    outline: "none",
+                  }}
+                />
+                <Button
+                  variant="contained"
+                  sx={{
+                    background: "#ff69b4",
+                    borderRadius: "20px",
+                    minWidth: "auto",
+                    px: 2,
+                    "&:hover": { background: "#ff1493" },
+                  }}
+                >
+                  ✉️
+                </Button>
+              </Box>
+            </Grid>
+          </Grid>
+          <Box sx={{ textAlign: "center", mt: 4, pt: 3, borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+            <Typography variant="body2" sx={{ opacity: 0.6 }}>
+              © 2024 Kids Canvas. All rights reserved. Made with ❤️ for creative minds.
+            </Typography>
+          </Box>
+        </Paper>
         </Container>
+        
       </Box>
     </ThemeProvider>
+
   )
 }

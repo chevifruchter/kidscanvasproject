@@ -108,18 +108,28 @@ builder.Services.AddSwaggerGen(options =>
     });
 });
 
-var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
+//var MyAllowSpecificOrigins = "_myAllowSpecificOrigins";
 
+//builder.Services.AddCors(options =>
+//{
+//    options.AddPolicy(name: MyAllowSpecificOrigins,
+//        policy =>
+//        {
+//            policy.WithOrigins("https://kidscanvasproject-1.onrender.com", "https://kidscanvasproject-2.onrender.com", "https://localhost:5173", "https://localhost:5174") // הרשה ל-React
+//                  .AllowAnyMethod() // GET, POST, PUT, DELETE...
+//                  .AllowAnyHeader(); // כותרות כמו Authorization, Content-Type...
+//        });
+//});
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(name: MyAllowSpecificOrigins,
-        policy =>
-        {
-            policy.WithOrigins("https://kidscanvasproject-1.onrender.com", "https://kidscanvasproject-2.onrender.com", "https://localhost:5173") // הרשה ל-React
-                  .AllowAnyMethod() // GET, POST, PUT, DELETE...
-                  .AllowAnyHeader(); // כותרות כמו Authorization, Content-Type...
-        });
+    options.AddPolicy("MyAllowSpecificOrigins",policy =>
+    {
+        policy.WithOrigins("https://kidscanvasproject-1.onrender.com", "https://kidscanvasproject-2.onrender.com", "https://localhost:5173", "https://localhost:5174") // הרשה ל-React
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
 });
+
 
 builder.Services.AddAutoMapper(typeof(MappinProfile));
 // הוספת DbContext
@@ -134,11 +144,14 @@ builder.Services.AddDbContext<DataContext>(options =>
 
 var app = builder.Build();
 
+app.UseCors("MyAllowSpecificOrigins");
+
+
 // מאפשר גישה לקבצים מתוך wwwroot (ברירת מחדל)
 app.UseStaticFiles();
 
 
-app.UseCors(MyAllowSpecificOrigins);
+
 
 // Configure the HTTP request pipeline.
 builder.Services.AddHttpClient();

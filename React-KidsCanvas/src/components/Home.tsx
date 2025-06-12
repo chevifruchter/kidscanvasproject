@@ -69,7 +69,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         // קריאה לשרת עבור הציורים
-        const drawingsResponse = await fetch(`${base_url}/api/Drawings`);
+        const drawingsResponse = await fetch(`https://localhost:7001/api/Drawings`);
         if (!drawingsResponse.ok) {
           throw new Error('Failed to fetch drawings');
         }
@@ -77,7 +77,7 @@ const Home = () => {
         setDrawing(drawingsData);
         if (drawingsData) {
           // קריאה לשרת עבור הקטגוריות
-          const categoriesResponse = await fetch(`${base_url}/api/Category`);
+          const categoriesResponse = await fetch(`https://localhost:7001/api/Category`);
           if (!categoriesResponse.ok) {
             throw new Error('Failed to fetch categories');
           }
@@ -131,18 +131,7 @@ const Home = () => {
                     console.log("ID לפני ניווט:", d.id);
                     navigate(`/open-drawing/${d.id}`);
                   }}>
-                    {/* <img
-                    src={d.path}
-                    alt="תמונה מ-S3"
-                    style={{
-                      width: "248px",
-                      height: "298px",
-                      objectFit: "cover",
-                      borderRadius: "10px",
-                      border: "1px solid black",
-                    }}
-                  /> */}
-                    <Box className="image-grid">
+                    {/* <Box className="image-grid">
                       {drawings.map((d, i) => (
                         <Box key={i}>
                           <img
@@ -154,30 +143,18 @@ const Home = () => {
                           <div className="image-label">{d.name}</div>
                         </Box>
                       ))}
-                    </Box>
+                    </Box> */}
                   </IconButton>
                 </Tooltip>
-                {/* <div
-                style={{
-                  background: "#f0f4ff",
-                  border: "1px solid #bbb",
-                  borderTop: "none",
-                  borderRadius: "0 0 10px 10px",
-                  padding: "4px 0",
-                  marginTop: "0px",
-                  width: "248px",
-                  fontWeight: "bold",
-                  fontSize: "1.05em",
-                  color: "#333",
-                  boxShadow: "0 2px 6px #eee"
-                }}
-              >
-                {d.name}
-              </div> */}
               </div>
             );
           })}
         </div>
+
+
+
+
+        
         {/* Footer */}
         <Paper
           elevation={4}
