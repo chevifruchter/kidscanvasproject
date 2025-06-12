@@ -69,7 +69,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         // קריאה לשרת עבור הציורים
-        const drawingsResponse = await fetch(`https://localhost:7001/api/Drawings`);
+        const drawingsResponse = await fetch(`${base_url}/api/Drawings`);
         if (!drawingsResponse.ok) {
           throw new Error('Failed to fetch drawings');
         }
@@ -77,7 +77,7 @@ const Home = () => {
         setDrawing(drawingsData);
         if (drawingsData) {
           // קריאה לשרת עבור הקטגוריות
-          const categoriesResponse = await fetch(`https://localhost:7001/api/Category`);
+          const categoriesResponse = await fetch(`${base_url}/api/Category`);
           if (!categoriesResponse.ok) {
             throw new Error('Failed to fetch categories');
           }
@@ -99,10 +99,10 @@ const Home = () => {
     return drawings.filter(d => d.name.includes(searchValue));
   }, [drawings, searchValue]);
 
-  const opendrawing = (d: Drawing) => {
-    console.log("ציור שנבחר:", d);
-    navigate("/open-drawing", { state: { id: d.id } });
-  };
+  // const opendrawing = (d: Drawing) => {
+  //   console.log("ציור שנבחר:", d);
+  //   navigate("/open-drawing", { state: { id: d.id } });
+  // };
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{ bgcolor: "background.default", minHeight: "100vh", py: 4 }}>
