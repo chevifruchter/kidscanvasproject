@@ -16,8 +16,8 @@ namespace Api_Kids_Canvas.Controllers
         public class DrawingModel
         {
             public string Name { get; set; }
-            public int TargetAge { get; set; }
             public string ArtistName { get; set; }
+            public int TargetAge { get; set; }
         }
 
         private readonly IAmazonS3 _s3Client;
